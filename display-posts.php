@@ -12,7 +12,7 @@
 
 $servername = "localhost";
 $username = "root";
-$password = "Aegis@123";
+$password = "*****";
 $dbname = "blog";
 
 // Create connection

@@ -93,7 +93,7 @@ for ($i=0; $i < $total; $i++) {
 //insert into database
 $servername = "localhost";
 $username = "root";
-$password = "Aegis@123";
+$password = "*****";
 $dbname = "blog";
 
 // Create connection
