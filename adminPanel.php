@@ -34,7 +34,7 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-    	if($row["status"] == 1){
+    	if($row["status"] == 0){
 	    	$imageString = $row["images"];
 	    	//print_r($imageString);
 	    	$images = explode('#', $imageString);
@@ -51,6 +51,9 @@ if ($result->num_rows > 0) {
 	        }
 	        echo "<div>" . $abstract . "....  <a style = \"cursor:pointer\" onclick=\"openNav(". $postid .")\">Read More</a></div>";
 
+    	    echo " <button onclick=\"manage(". $postid .", 0)\">Delete</button> ";
+	        echo " <button onclick=\"manage(". $postid .", 1)\">Publish</button> ";
+
 	        // echo "<div><div><p>" . $row["content"] . "</p></div>";
 
 	        $step1=explode('v=', $row["video"]);
@@ -58,6 +61,7 @@ if ($result->num_rows > 0) {
 			$videoId = $step2[0];
 			//echo $videoId;
 			echo "<iframe src=\"https://www.youtube.com/embed/" . $videoId ."\" width=\"320\" height=\"240\" frameborder=\"0\" allowfullscreen></iframe><hr></div>";
+
 
 
 

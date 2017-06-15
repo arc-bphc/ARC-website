@@ -79,12 +79,14 @@ for ($i=0; $i < $total; $i++) {
     else {
         if (move_uploaded_file($_FILES["imgToUpload"]["tmp_name"][$i], $target_file)) {
             echo "The file ". basename( $_FILES["imgToUpload"]["name"][$i]). " has been uploaded.\n";
-        } else {
+            $imageString = $imageString . $target_file . "#";
+
+        }
+        else {
             echo "Sorry, there was an error uploading your file.";
         }
     }
 
-    $imageString = $imageString . $target_file . "#";
 }
 
 
@@ -93,7 +95,7 @@ for ($i=0; $i < $total; $i++) {
 //insert into database
 $servername = "localhost";
 $username = "root";
-$password = "*****";
+$password = "";
 $dbname = "blog";
 
 // Create connection
@@ -103,8 +105,8 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-$sql = "INSERT INTO posts (title, author, images, video, content,uploadtime)
-VALUES ('$blogTitle', '$author', '$imageString', '$videolink', '$content',now())";
+$sql = "INSERT INTO posts (title, author, images, video, content,uploadtime,status)
+VALUES ('$blogTitle', '$author', '$imageString', '$videolink', '$content',now(),0)";
 
 if (mysqli_query($conn, $sql)) {
     echo "New record created successfully";
