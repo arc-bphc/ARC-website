@@ -1,10 +1,11 @@
 <?php 
+session_start();
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 $blogTitle = $_POST["blogTitle"];
-$author = $_POST["author"];
+$author = $_SESSION["user"];
 $content = $_POST["content"];
 $videolink = $_POST["video-link"];
 if($blogTitle == ""){
@@ -49,7 +50,7 @@ for ($i=0; $i < $total; $i++) {
         $uploadOk = 1;
     }
     else {
-        echo "File is not an image.";
+        echo "<br>File is not an image.";
         $uploadOk = 0;
     }
 
@@ -68,12 +69,12 @@ for ($i=0; $i < $total; $i++) {
 	// Allow certain file formats
     if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
     && $imageFileType != "gif" ) {
-        echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+        echo "<br>Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
         $uploadOk = 0;
     }
     // Check if $uploadOk is set to 0 by an error
     if ($uploadOk == 0) {
-        echo "Sorry, your file was not uploaded.";
+        echo "<br>Sorry, your file was not uploaded.";
     // if everything is ok, try to upload file
     } 
     else {
@@ -83,7 +84,7 @@ for ($i=0; $i < $total; $i++) {
 
         }
         else {
-            echo "Sorry, there was an error uploading your file.";
+            echo "<br>Sorry, there was an error uploading your file.";
         }
     }
 
@@ -95,7 +96,7 @@ for ($i=0; $i < $total; $i++) {
 //insert into database
 $servername = "localhost";
 $username = "root";
-$password = "";
+$password = "Aegis@123";
 $dbname = "blog";
 
 // Create connection
@@ -109,7 +110,7 @@ $sql = "INSERT INTO posts (title, author, images, video, content,uploadtime,stat
 VALUES ('$blogTitle', '$author', '$imageString', '$videolink', '$content',now(),0)";
 
 if (mysqli_query($conn, $sql)) {
-    echo "New record created successfully";
+    echo "<br>New record created successfully";
 
 
 } else {
@@ -117,5 +118,5 @@ if (mysqli_query($conn, $sql)) {
 }
 
 mysqli_close($conn);
-
+echo "<div><a href = \"./display-posts.php\">See posts</a>";
 ?>

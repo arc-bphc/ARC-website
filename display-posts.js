@@ -41,7 +41,7 @@ loadJSON('jconfig.json', function printJSONObject(){
 	<h4>"+ d +"</h4></div>";
 
 	//display images----------------
-	document.getElementById("images").innerHTML = "<h3>Photos:</h3>";
+	//document.getElementById("images").innerHTML = "<h3>Photos:</h3>";
 	for (var i = 0; i < (imageArray.length - 1); i++) {
 		displayImage(imageArray[i]);
 	}
@@ -94,7 +94,10 @@ function manage(postid,pd) {
 	if(pd == 1){
 		obj = {"postid":postid , "managepost": 1};
 	}
-	else{
+	else if(pd == 2){
+		obj = {"postid":postid , "managepost": 2};
+	}
+	else if(confirm("Are you you sure you want to delete this post?")){
 		obj = {"postid":postid , "managepost": 0};
 	}
 	dbParam = JSON.stringify(obj);
@@ -104,6 +107,7 @@ function manage(postid,pd) {
 	    if (this.readyState == 4 && this.status == 200) {
 	        myObj = JSON.parse(this.responseText);
 	        console.log(myObj);
+	        location.reload();
 	        
 	    }
 
@@ -111,4 +115,12 @@ function manage(postid,pd) {
 
 	xmlhttp.open("GET", "managePosts.php?x=" + dbParam, true);
 	xmlhttp.send();
+
+}
+
+function signOut() {
+  var auth2 = gapi.auth2.getAuthInstance();
+  auth2.signOut().then(function () {
+    console.log('User signed out.');
+  });
 }

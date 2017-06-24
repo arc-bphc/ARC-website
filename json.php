@@ -4,7 +4,7 @@ $obj = json_decode($_GET["x"], false);
 
 $servername = "localhost";
 $username = "root";
-$password = "";
+$password = "Aegis@123";
 $dbname = "blog";
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection

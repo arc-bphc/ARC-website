@@ -25,7 +25,7 @@ else if($passwordA == ""){
 // insert into database
 $servername = "localhost";
 $username = "root";
-$password = "";
+$password = "Aegis@123";
 $dbname = "blog";
 
 // Create connection
@@ -57,10 +57,12 @@ $row = $result->fetch_assoc();
 if($row['password'] == $passwordA){
     if($row['isadmin'] == 1){
         $_SESSION["login-status"] = 2; 
+        $_SESSION["user"] = $row['name'];
         header("Location: ./display-posts.php");
     }
     else{
         $_SESSION["login-status"] = 1;
+        $_SESSION["user"] = $row['name'];
         header("Location: ./display-posts.php"); 
     }
 }
