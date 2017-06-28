@@ -3,6 +3,10 @@ include("connect.php");
 session_start();
 if ( $GLOBALS[ 'con' ] ) {
 
+if($_SESSION["login-status"] != 1 && $_SESSION["login-status"] != 2) {
+  header("Location: ../../blog/sign.php");
+}
+
 echo "<nav class=\"navbar navbar-toggleable-md navbar-inverse bg-inverse\">
   <button class=\"navbar-toggler navbar-toggler-right\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarTogglerDemo02\" aria-controls=\"navbarTogglerDemo02\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
     <span class=\"navbar-toggler-icon\"></span>
@@ -17,10 +21,6 @@ echo "<nav class=\"navbar navbar-toggleable-md navbar-inverse bg-inverse\">
         <a class=\"nav-link\" href=\"../../blog/sign.php\" onclick=\"signOut();\">Logout</a>
       </li>
     </ul>
-    <form class=\"form-inline my-2 my-lg-0\">
-      <input class=\"form-control mr-sm-2\" type=\"text\" placeholder=\"Search\">
-      <button class=\"btn btn-outline-success my-2 my-sm-0\" type=\"submit\">Search</button>
-    </form>
   </div>
 </nav>";
 
