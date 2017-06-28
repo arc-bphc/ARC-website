@@ -57,8 +57,7 @@ echo "</a>
       </li>
     </ul>
     <form class=\"form-inline my-2 my-lg-0\">
-      <input class=\"form-control mr-sm-2\" type=\"text\" placeholder=\"Search\">
-      <button class=\"btn btn-outline-success my-2 my-sm-0\" type=\"submit\">Search</button>
+      <input id=\"searchBar\" class=\"form-control mr-sm-2\" type=\"text\" onkeyup=\"searchBlog()\" placeholder=\"Search\">
     </form>
   </div>
 </nav>";
@@ -98,7 +97,7 @@ if ($result->num_rows > 0) {
 	        echo "<p class = \"card-text\">" . $abstract . "....  <a style = \"cursor:pointer;color: blue;\" onclick=\"openNav(". $postid .")\">Read More</a></div>";
 
 	        
-	        echo "<div class = \"card-footer\">" ."By:- ". $row["author"] . "<br>". $row["uploadtime"];
+	        echo "<div class = \"card-footer\">" ."By:- <div class=\"author\">". $row["author"] . "</div><br>". $row["uploadtime"];
 			if($_SESSION["login-status"] == 2){
 				echo " <div><button onclick=\"manage(". $postid .", 2)\">Withdraw From Publication</button></div> ";
 			}

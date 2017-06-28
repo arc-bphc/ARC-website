@@ -124,3 +124,20 @@ function signOut() {
     console.log('User signed out.');
   });
 }
+
+function searchBlog() {
+    var input, filter, title, author, i;
+    input = document.getElementById('searchBar');
+    filter = input.value.toUpperCase();
+    var posts = document.getElementsByClassName("card");
+    //Loop through all list items, and hide those who don't match the search query
+    for (i = 0; i < posts.length; i++) {
+        title = posts[i].getElementsByClassName("card-title")[0].innerHTML.toUpperCase();
+        author = posts[i].getElementsByClassName("author")[0].innerHTML.toUpperCase();
+        if (title.indexOf(filter) > -1 || author.indexOf(filter) > -1) {
+            posts[i].style.display = "";
+        } else {
+            posts[i].style.display = "none";
+        }
+    }
+}

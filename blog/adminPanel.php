@@ -35,9 +35,8 @@ echo "<nav class=\"navbar navbar-toggleable-md navbar-inverse bg-inverse\">
         <a class=\"nav-link\" href=\"sign.php\" onclick=\"signOut();\">Logout</a>
       </li>
     </ul>
-    <form class=\"form-inline my-2 my-lg-0\">
-      <input class=\"form-control mr-sm-2\" type=\"text\" placeholder=\"Search\">
-      <button class=\"btn btn-outline-success my-2 my-sm-0\" type=\"submit\">Search</button>
+	<form class=\"form-inline my-2 my-lg-0\">
+    <input id=\"searchBar\" class=\"form-control mr-sm-2\" type=\"text\" onkeyup=\"searchBlog()\" placeholder=\"Search\">
     </form>
   </div>
 </nav>";
@@ -76,7 +75,7 @@ if ($result->num_rows > 0) {
 	    		 		<h4 class = \"card-title\">" . $row["title"]. "</h4>
 	    		 			<p class = \"card-text\">" . $abstract . "....  <a style = \"cursor:pointer\" onclick=\"openNav(". $postid .")\">Read More</a></p>
 	    		 	</div>
-	    		 	<div class = \"card-footer\">" ."By:- ". $row["author"] . "<br>". $row["uploadtime"] . " 
+	    		 	<div class = \"card-footer\">" ."By:- <div class=\"author\">". $row["author"] . "</div><br>". $row["uploadtime"] . " 
 	    		 		<div>
 	    		 			<button onclick=\"manage(". $postid .", 0)\">Delete</button>
 	    		 			<button onclick=\"manage(". $postid .", 1)\">Publish</button>
