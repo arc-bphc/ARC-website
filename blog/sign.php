@@ -7,7 +7,7 @@ if(isset($_GET['email']) && isset($_GET['code'])){
   $email=$_GET['email'];
   $code=$_GET['code'];
 
-  require_once 'config.php';
+  require_once '../config.php';
 
   // Create connection
   $conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
