@@ -43,6 +43,7 @@ if(isset($_GET['email']) && isset($_GET['code'])){
     <title>Sign In</title>
     <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
+    <link rel="icon" href="images/arclogo.png" type="image/png">
     <link rel="stylesheet" type="text/css" href="sign.css">
     <style>
       .abcRioButton{

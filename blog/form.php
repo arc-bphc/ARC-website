@@ -3,6 +3,7 @@
 <head>
     <title>New Blog Post</title>
     <link rel="stylesheet" href="./bootstrap4/css/bootstrap.min.css">
+    <link rel="icon" href="images/arclogo.png" type="image/png">
     <style>
     @media only screen and (min-width: 580px){ 
       label{

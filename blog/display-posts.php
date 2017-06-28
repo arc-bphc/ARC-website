@@ -5,6 +5,7 @@
 	<title>ARC Projects</title>
     <link rel="stylesheet" href="./bootstrap4/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="./display-posts.css">
+    <link rel="icon" href="images/arclogo.png" type="image/png"> 
     <script src="jquery.min.js"></script>
     <script src="./bootstrap4/js/bootstrap.min.js"></script>
 	<script src="https://use.fontawesome.com/1523c943cd.js"></script>
