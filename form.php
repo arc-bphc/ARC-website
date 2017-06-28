@@ -20,6 +20,7 @@
     </style>
     <script src="./jquery.min.js"></script>
     <script src="./bootstrap4/js/bootstrap.min.js"></script>
+    <script src="https://use.fontawesome.com/1523c943cd.js"></script>
     <script>
     $( document ).ready(function() {
 

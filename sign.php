@@ -45,6 +45,7 @@ if(isset($_GET['email']) && isset($_GET['code'])){
     <title>Sign In</title>
     <meta name="google-signin-client_id" content="774440701303-rv2gilg9fk78eh25uf6jhd9s9o0k5mio.apps.googleusercontent.com">
     <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="sign.css">
     <style>
       .abcRioButton{
@@ -60,7 +61,9 @@ if(isset($_GET['email']) && isset($_GET['code'])){
       }
     </style>
     <script src="./jquery.min.js"></script>
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script> 
+    <script src="https://use.fontawesome.com/1523c943cd.js"></script>
+    <script src="https://apis.google.com/js/api:client.js"></script>
     <script src="./bootstrap/js/bootstrap.min.js"></script>
     <script>
 
@@ -190,6 +193,31 @@ if(isset($_GET['email']) && isset($_GET['code'])){
         });
     });
 
+  var googleUser = {};
+  var startApp = function() {
+    gapi.load('auth2', function(){
+      // Retrieve the singleton for the GoogleAuth library and set up the client.
+      auth2 = gapi.auth2.init({
+        client_id: 'YOUR_CLIENT_ID.apps.googleusercontent.com',
+        cookiepolicy: 'single_host_origin',
+        // Request scopes in addition to 'profile' and 'email'
+        //scope: 'additional_scope'
+      });
+      attachSignin(document.getElementById('customBtn'));
+    });
+  };
+
+  function attachSignin(element) {
+    console.log(element.id);
+    auth2.attachClickHandler(element, {},
+        function(googleUser) {
+          document.getElementById('name').innerText = "Signed in: " +
+              googleUser.getBasicProfile().getName();
+        }, function(error) {
+          alert(JSON.stringify(error, undefined, 2));
+        });
+  }
+
 </script>
 </head>
 <body>
@@ -225,9 +253,18 @@ if(isset($_GET['email']) && isset($_GET['code'])){
       <div class="google-sign col-sm-4">
         <div class="g-signin2" data-onsuccess="SignIn"></div>
       </div>
-    </div>
-    </form>
 
+      <div id="gSignInWrapper">
+        <span class="label">Sign in with:</span>
+        <div id="customBtn" class="customGPlusSignIn">
+        <span class="icon"></span>
+        <span class="buttonText">Google</span>
+      </div>
+  </div>
+  <div id="name"></div>
+  <script>startApp();</script>
+     </div>
+   </form>
   </div>
 
 
