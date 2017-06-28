@@ -2,11 +2,10 @@
 header("Content-Type: application/json; charset=UTF-8");
 $obj = json_decode($_GET["x"], false);
 
-$servername = "localhost";
-$username = "root";
-$password = "Aegis@123";
-$dbname = "blog";
-$conn = new mysqli($servername, $username, $password, $dbname);
+require_once 'config.php';
+
+// Create connection
+$conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);

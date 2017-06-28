@@ -50,13 +50,10 @@ echo "</a>
 </nav>";
 
 
-$servername = "localhost";
-$username = "root";
-$password = "Aegis@123";
-$dbname = "blog";
+require_once 'config.php';
 
 // Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);

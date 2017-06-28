@@ -9,13 +9,10 @@ $passwordB = $obj->id;
 $isadmin = 0;
 
 
-$servername = "localhost";
-$username = "root";
-$password = "Aegis@123";
-$dbname = "blog";
+require_once 'config.php';
 
 // Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 // Check connection
 if ($conn->connect_error) {
     $status = "Connection failed: " . $conn->connect_error;

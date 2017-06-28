@@ -94,13 +94,10 @@ for ($i=0; $i < $total; $i++) {
 
 
 //insert into database
-$servername = "localhost";
-$username = "root";
-$password = "Aegis@123";
-$dbname = "blog";
+require_once 'config.php';
 
 // Create connection
-$conn = mysqli_connect($servername, $username, $password, $dbname);
+$conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 // Check connection
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());

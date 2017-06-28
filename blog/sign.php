@@ -6,13 +6,11 @@
 if(isset($_GET['email']) && isset($_GET['code'])){
   $email=$_GET['email'];
   $code=$_GET['code'];
-  $servername = "localhost";
-  $username = "root";
-  $password = "Aegis@123";
-  $dbname = "blog";
+
+  require_once 'config.php';
 
   // Create connection
-  $conn = new mysqli($servername, $username, $password, $dbname);
+  $conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 
 
   $sql = "SELECT name,email,password,isadmin from unverified_users where email='$email' and activationCode ='$code'";
