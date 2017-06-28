@@ -55,6 +55,7 @@ header{
   font-size: 1.2em;
   color: #FFF;
   cursor: pointer;
+  padding: 0;
 }
 
 .loginBtn:focus {
@@ -76,6 +77,6 @@ header{
   background: #E74B37;
 }
 .loginBtn span i{
-  padding-left: 20px;
+  padding-left: 15px;
   padding-right: 10px;
 }
