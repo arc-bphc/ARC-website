@@ -1,5 +1,6 @@
 body{
 	box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
 }
 
 #signin, #signup{
@@ -39,37 +40,42 @@ header{
 	font-size: 25px;
 }
 
-#customBtn {
-    display: inline-block;
-    background: white;
-    color: #444;
-    width: 190px;
-    border-radius: 5px;
-    border: thin solid #888;
-	box-shadow: 1px 1px 1px grey;
-    white-space: nowrap;
+/*google buttons*/
+/* Shared */
+.loginBtn {
+  box-sizing: border-box;
+  position: relative;
+  width: 13em; 
+  margin: 0.2em;
+  border: none;
+  text-align: left;
+  line-height: 2.5em;
+  white-space: nowrap;
+  border-radius: 0.2em;
+  font-size: 1.2em;
+  color: #FFF;
+  cursor: pointer;
 }
-#customBtn:hover {
-    cursor: pointer;
+
+.loginBtn:focus {
+  outline: none;
 }
-span.label {
-    font-family: serif;
-    font-weight: normal;
+.loginBtn:active {
+  box-shadow: inset 0 0 0 32px rgba(0,0,0,0.1);
 }
-span.icon {
-    background: url('/identity/sign-in/g-normal.png') transparent 5px 50% no-repeat;
-    display: inline-block;
-    vertical-align: middle;
-    width: 42px;
-    height: 42px;
+
+
+.loginBtn--google {
+  background: #DD4B39;
 }
-span.buttonText {
-    display: inline-block;
-    vertical-align: middle;
-    padding-left: 42px;
-    padding-right: 42px;
-    font-size: 14px;
-    font-weight: bold;
-    /* Use the Roboto font that is loaded in the <head> */
-    font-family: 'Roboto', sans-serif;
+/*.loginBtn--google:before {
+  background-image: url('/images/icon_google.png');
+}*/
+.loginBtn--google:hover,
+.loginBtn--google:focus {
+  background: #E74B37;
+}
+.loginBtn span i{
+  padding-left: 20px;
+  padding-right: 10px;
 }

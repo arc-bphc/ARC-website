@@ -41,7 +41,6 @@ if(isset($_GET['email']) && isset($_GET['code'])){
 <html>
 <head>
     <title>Sign In</title>
-    <meta name="google-signin-client_id" content="774440701303-rv2gilg9fk78eh25uf6jhd9s9o0k5mio.apps.googleusercontent.com">
     <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="sign.css">
@@ -59,16 +58,45 @@ if(isset($_GET['email']) && isset($_GET['code'])){
       }
     </style>
     <script src="./jquery.min.js"></script>
-    <script src="https://apis.google.com/js/platform.js" async defer></script> 
     <script src="https://use.fontawesome.com/1523c943cd.js"></script>
     <script src="https://apis.google.com/js/api:client.js"></script>
     <script src="./bootstrap/js/bootstrap.min.js"></script>
     <script>
 
-    gapi.load('auth2',function(){
-      gapi.auth.init();
+
+    // gapi.load('auth2',function(){
+    //   gapi.auth.init();
+    // });
+
+    var googleUser = {};
+    gapi.load('auth2', function(){
+      // Retrieve the singleton for the GoogleAuth library and set up the client.
+      auth2 = gapi.auth2.init({
+        client_id: '774440701303-rv2gilg9fk78eh25uf6jhd9s9o0k5mio.apps.googleusercontent.com'
+        // Request scopes in addition to 'profile' and 'email'
+        //scope: 'additional_scope'
+      });
+      attachSignUp();
+      attachSignIn();
     });
 
+
+    function attachSignUp() {
+    auth2.attachClickHandler(document.getElementById('customSignUpBtn'), {},
+        function(googleUser) {
+          SignUp(googleUser);
+        }, function(error) {
+          alert(JSON.stringify(error, undefined, 2));
+        });
+  }
+      function attachSignIn() {
+    auth2.attachClickHandler(document.getElementById('customSignInBtn'), {},
+        function(googleUser) {
+          SignIn(googleUser);
+        }, function(error) {
+          alert(JSON.stringify(error, undefined, 2));
+        });
+  }
 
 
   function SignUp(googleUser) {
@@ -191,30 +219,7 @@ if(isset($_GET['email']) && isset($_GET['code'])){
         });
     });
 
-  var googleUser = {};
-  var startApp = function() {
-    gapi.load('auth2', function(){
-      // Retrieve the singleton for the GoogleAuth library and set up the client.
-      auth2 = gapi.auth2.init({
-        client_id: 'YOUR_CLIENT_ID.apps.googleusercontent.com',
-        cookiepolicy: 'single_host_origin',
-        // Request scopes in addition to 'profile' and 'email'
-        //scope: 'additional_scope'
-      });
-      attachSignin(document.getElementById('customBtn'));
-    });
-  };
 
-  function attachSignin(element) {
-    console.log(element.id);
-    auth2.attachClickHandler(element, {},
-        function(googleUser) {
-          document.getElementById('name').innerText = "Signed in: " +
-              googleUser.getBasicProfile().getName();
-        }, function(error) {
-          alert(JSON.stringify(error, undefined, 2));
-        });
-  }
 
 </script>
 </head>
@@ -225,7 +230,7 @@ if(isset($_GET['email']) && isset($_GET['code'])){
 
 <div id = "container" class="row row-eq-height">
   <div id="signin" class="col-sm-4 col-sm-offset-2">
-    <h2 class="col-sm-offset-5">Sign In</h2>
+    <h2 class="col-sm-offset-5">Log In</h2>
     <form class="form-horizontal" name="signinForm" action="signin.php" method="post" enctype="multipart/form-data">
       <div class="form-group">
         <label class="col-sm-3 control-label">Email Id:</label>
@@ -248,19 +253,12 @@ if(isset($_GET['email']) && isset($_GET['code'])){
       <div class="OR col-sm-4">
         <p>OR</p>
       </div>
-      <div class="google-sign col-sm-4">
-        <div class="g-signin2" data-onsuccess="SignIn"></div>
-      </div>
-
-      <div id="gSignInWrapper">
-        <span class="label">Sign in with:</span>
-        <div id="customBtn" class="customGPlusSignIn">
-        <span class="icon"></span>
-        <span class="buttonText">Google</span>
-      </div>
-  </div>
-  <div id="name"></div>
-  <script>startApp();</script>
+        <button id="customSignInBtn" class="loginBtn loginBtn--google" type="button">
+          <span>
+            <i aria-hidden="true" class="fa fa-google"></i>
+          </span>
+          <span>Login with Google</span>
+        </button>
      </div>
    </form>
   </div>
@@ -309,9 +307,12 @@ if(isset($_GET['email']) && isset($_GET['code'])){
       <div class="OR col-sm-4">
         <p>OR</p>
       </div>
-    <div class="google-sign col-sm-4">
-      <div class="g-signin2" data-onsuccess="SignUp"></div>
-    </div>
+        <button id="customSignUpBtn" class="loginBtn loginBtn--google" type="button">
+          <span>
+            <i aria-hidden="true" class="fa fa-google"></i>
+          </span>
+          <span>Sign up with Google</span>
+        </button>
     </div>
     </form>
   </div>
