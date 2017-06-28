@@ -1,11 +1,30 @@
 <?php
 include("connect.php");
-
+session_start();
 if ( $GLOBALS[ 'con' ] ) {
-	echo 'Successfull <br><br>';
 
-$session_id = 2016441;
-$qry = "SELECT * FROM `users` WHERE `ID`='$session_id'";
+echo "<nav class=\"navbar navbar-toggleable-md navbar-inverse bg-inverse\">
+  <button class=\"navbar-toggler navbar-toggler-right\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarTogglerDemo02\" aria-controls=\"navbarTogglerDemo02\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
+    <span class=\"navbar-toggler-icon\"></span>
+  </button>
+  <div class=\"collapse navbar-collapse\" id=\"navbarTogglerDemo02\">
+    <ul class=\"navbar-nav mr-auto mt-2 mt-md-0\">
+      <li class=\"nav-item active\">
+        <a class=\"nav-link\" href=\"#\">Home <span class=\"sr-only\">(current)</span></a>
+      <li class=\"nav-item\"><a class=\"nav-link\" href=\"../../blog/form.php\">Write Post</a></li>
+      <li class=\"nav-item\"><a class=\"nav-link\" href=\"../../blog/display-posts.php\">Reader</a></li>
+      <li class=\"nav-item\">
+        <a class=\"nav-link\" href=\"../../blog/sign.php\" onclick=\"signOut();\">Logout</a>
+      </li>
+    </ul>
+    <form class=\"form-inline my-2 my-lg-0\">
+      <input class=\"form-control mr-sm-2\" type=\"text\" placeholder=\"Search\">
+      <button class=\"btn btn-outline-success my-2 my-sm-0\" type=\"submit\">Search</button>
+    </form>
+  </div>
+</nav>";
+
+$qry = "SELECT * FROM users WHERE ID = ".$_SESSION["id"];
 $user_datalist = $GLOBALS[ 'con' ]->query($qry);
 $user_data = $user_datalist->fetch_assoc();
 
@@ -68,7 +87,7 @@ if ( isset( $_POST[ 'id' ] ) ) {
 <head>
 <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../../blog/bootstrap4/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>

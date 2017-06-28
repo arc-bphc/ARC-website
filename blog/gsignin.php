@@ -38,16 +38,15 @@ else{
 
   // to execute on password verification
   if($row['password'] == $passwordA){
+      $_SESSION["id"] = $row['id'];
+      $_SESSION["user"] = $row['name'];
       if($row['isadmin'] == 1){
-          $_SESSION["login-status"] = 2; 
-          $_SESSION["user"] = $row['name'];
-          $status = "success";
+        $_SESSION["login-status"] = 2;
       }
       else{
-          $_SESSION["login-status"] = 1;
-          $_SESSION["user"] = $row['name'];
-          $status = "success";
+        $_SESSION["login-status"] = 1; 
       }
+      $status = "success";
   }
   else{
     $status = "<font color = red> Incorrect password </font>";

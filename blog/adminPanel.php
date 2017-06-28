@@ -24,16 +24,7 @@ echo "<nav class=\"navbar navbar-toggleable-md navbar-inverse bg-inverse\">
   <button class=\"navbar-toggler navbar-toggler-right\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarTogglerDemo02\" aria-controls=\"navbarTogglerDemo02\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
     <span class=\"navbar-toggler-icon\"></span>
   </button>
-  <a class=\"navbar-brand\" href=\"../shyam/user-profile/index.php\">";
-if(!isset($_SESSION["login-status"]) || empty($_SESSION["login-status"])) {
-   $_SESSION["login-status"] = 0;
-   	echo "<img class=\"profile-pic rounded\" src=\"images/default-user.png\">Guest";
-}
-else {
-	echo "<img class=\"profile-pic rounded\" src=\"images/default-user.png\">" . $_SESSION["user"];
-}
-
-echo "</a>
+  <a class=\"navbar-brand\" href=\"../shyam/user-profile/bootstrapform.php\"><img class=\"profile-pic rounded\" src=\"images/default-user.png\">" . $_SESSION["user"]."</a>
   <div class=\"collapse navbar-collapse\" id=\"navbarTogglerDemo02\">
     <ul class=\"navbar-nav mr-auto mt-2 mt-md-0\">
       <li class=\"nav-item active\">
