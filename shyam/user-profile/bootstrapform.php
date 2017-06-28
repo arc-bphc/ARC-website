@@ -1,7 +1,6 @@
 <?php
 include("connect.php");
 
-echo "<b>CHECKING CONNECTION</b> <br>";
 if ( $GLOBALS[ 'con' ] ) {
 	echo 'Successfull <br><br>';
 
@@ -120,7 +119,7 @@ if ( isset( $_POST[ 'id' ] ) ) {
   </div>
   <div class="form-group"> 
     <div class="col-sm-offset-2 col-sm-10">
-      <button type="submit" class="btn btn-success">Submit</button>
+      <button type="submit" class="btn btn-success">Save</button>
     </div>
   </div>
 </form>
