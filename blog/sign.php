@@ -45,19 +45,6 @@ if(isset($_GET['email']) && isset($_GET['code'])){
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
     <link rel="icon" href="images/arclogo.png" type="image/png">
     <link rel="stylesheet" type="text/css" href="sign.css">
-    <style>
-      .abcRioButton{
-        margin: auto;
-      }
-      .buttons{
-        margin: 40px;
-      }
-      .OR{
-        text-align: center;
-        font-size: 1.5em;
-        vertical-align: middle;
-      }
-    </style>
     <script src="./jquery.min.js"></script>
     <script src="https://use.fontawesome.com/1523c943cd.js"></script>
     <script src="https://apis.google.com/js/api:client.js"></script>
@@ -65,6 +52,15 @@ if(isset($_GET['email']) && isset($_GET['code'])){
     <script src="sign.js"></script>
 </head>
 <body>
+
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.9&appId=122099171720574";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
   <header>
 <img src="./images/arc-logo-full.jpg" height="30%" width="30%">
 </header>
@@ -85,21 +81,28 @@ if(isset($_GET['email']) && isset($_GET['code'])){
           <input type="Password" class="form-control" id="passwordA" name="passwordA" placeholder="Enter password">
         </div>
       </div>
-      <div class="buttons row">
-      <div class="form-group col-sm-4">
+      <div class="buttons">
+      <div class="form-group">
         <div class="col-sm-offset-5 col-sm-10">
           <button type="submit" id="submit-signin" name="submit" class="submit btn btn-default">Sign In</button>
         </div>
       </div>
-      <div class="OR col-sm-4">
-        <p>OR</p>
-      </div>
-        <button id="customSignInBtn" class="loginBtn loginBtn--google" type="button">
-          <span>
-            <i aria-hidden="true" class="fa fa-google"></i>
-          </span>
-          <span>Login with Google</span>
-        </button>
+        <div class="button-wrapper">
+          <button id="customSignInBtn" class="loginBtn loginBtn--google" type="button">
+            <span>
+              <i aria-hidden="true" class="fa fa-google"></i>
+            </span>
+            <span>Login with Google</span>
+          </button>
+        </div>
+        <div class="button-wrapper">
+          <button onclick="FBsignin()" class="loginBtn loginBtn--facebook" type="button">
+            <span>
+              <i aria-hidden="true" class="fa fa-facebook-official"></i>
+            </span>
+            <span>Login with Facebook</span>
+          </button>
+        </div>
      </div>
    </form>
   </div>
@@ -139,21 +142,28 @@ if(isset($_GET['email']) && isset($_GET['code'])){
           <input type="password" class="form-control" id="repassword" name="repassword" placeholder="re-enter password">
         </div>
       </div>
-      <div class = "row buttons">
-      <div class="form-group col-sm-4">
+      <div class = "buttons">
+      <div class="form-group">
         <div class="col-sm-offset-5 col-sm-10">
           <button type="submit" id="submit-signup" name="submit" class="submit btn btn-default">Sign Up</button>
         </div>
       </div>
-      <div class="OR col-sm-4">
-        <p>OR</p>
-      </div>
+      <div class="button-wrapper">
         <button id="customSignUpBtn" class="loginBtn loginBtn--google" type="button">
           <span>
             <i aria-hidden="true" class="fa fa-google"></i>
           </span>
           <span>Sign up with Google</span>
         </button>
+      </div>
+      <div class="button-wrapper">
+          <button onclick="FBsignup()" class="loginBtn loginBtn--facebook" type="button">
+            <span>
+              <i aria-hidden="true" class="fa fa-facebook-official"></i>
+            </span>
+            <span>Sign up with Facebook</span>
+          </button>
+        </div>
     </div>
     </form>
   </div>

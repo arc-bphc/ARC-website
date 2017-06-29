@@ -62,7 +62,6 @@
   function SignIn(googleUser) {
     var profile = googleUser.getBasicProfile();
 
-
     var obj, dbParam, xmlhttp;
     obj = {
        "id" :  profile.getId(),
@@ -148,3 +147,84 @@
             }
         });
     });
+
+
+//-------------------------facebook sign up---------------------------------
+
+function FBsignup() {
+
+  FB.login(function(response) {
+    if (response.status === 'connected') {
+      // Logged into your app and Facebook.
+      fbsignup();
+    }
+  });
+
+}
+
+function fbsignup() {
+    FB.api('/me','GET', {fields: 'name,id,email,picture.type(large)'}, function(response) {
+    var obj, dbParam, xmlhttp;
+    obj = {
+       "id" :  response.id,
+       "name" : response.name,
+       "email" : response.email
+    };
+    //console.log(obj);
+    gapi.auth2.getAuthInstance().disconnect();
+    dbParam = JSON.stringify(obj);
+
+    xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        var test = this.responseText;
+        test = test.replace(/\"/g, "");  
+        document.getElementById("error").innerHTML = test;
+          
+      }
+
+    };
+
+    xmlhttp.open("GET", "gsignup.php?x=" + dbParam, true);
+    xmlhttp.send();
+    });
+  }
+
+function FBsignin(){
+    FB.login(function(response) {
+    if (response.status === 'connected') {
+      // Logged into your app and Facebook.
+      fbsignin();
+    }
+  }); 
+}
+function fbsignin(){
+  FB.api('/me','GET', {fields: 'name,id,email,picture.type(large)'}, function(response) {
+    var obj, dbParam, xmlhttp;
+    obj = {
+       "id" :  response.id,
+       "name" : response.name,
+       "email" : response.email
+    };
+    gapi.auth2.getAuthInstance().disconnect();
+    console.log(obj);
+    dbParam = JSON.stringify(obj);
+
+    xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        var test = this.responseText;
+        test = test.replace(/\"/g, "");
+        if(test == "success"){
+          window.location.href = "./display-posts.php";
+        }  
+        document.getElementById("error").innerHTML = test;
+          
+      }
+
+    };
+
+    xmlhttp.open("GET", "gsignin.php?x=" + dbParam, true);
+    xmlhttp.send();
+    });
+}

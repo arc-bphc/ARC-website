@@ -1,6 +1,13 @@
+.abcRioButton{
+  margin: auto;
+}
+.buttons{
+  margin: 40px;
+}
+
 body{
 	box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 #signin, #signup{
@@ -64,14 +71,23 @@ header{
 .loginBtn:active {
   box-shadow: inset 0 0 0 32px rgba(0,0,0,0.1);
 }
+/* Facebook */
+.loginBtn--facebook {
+  background-color: #4C69BA;
+  background-image: linear-gradient(#4C69BA, #3B55A0);
+  text-shadow: 0 -1px 0 #354C8C;
+}
 
+.loginBtn--facebook:hover,
+.loginBtn--facebook:focus {
+  background-color: #5B7BD5;
+  background-image: linear-gradient(#5B7BD5, #4864B1);
+}
 
 .loginBtn--google {
   background: #DD4B39;
 }
-/*.loginBtn--google:before {
-  background-image: url('/images/icon_google.png');
-}*/
+
 .loginBtn--google:hover,
 .loginBtn--google:focus {
   background: #E74B37;
@@ -79,4 +95,8 @@ header{
 .loginBtn span i{
   padding-left: 15px;
   padding-right: 10px;
+}
+.button-wrapper{
+  display: flex;
+  justify-content: center;
 }
