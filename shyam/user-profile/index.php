@@ -6,14 +6,14 @@
 	   echo 'Successfull <br><br>';
 
 
-  $session_id = 2016441;
-  $qry = "SELECT * FROM `users` WHERE `ID`='$session_id'";
-  $user_datalist = $GLOBALS[ 'con' ]->query($qry);
-  $user_data = $user_datalist->fetch_assoc();
+  $session_id = 2016441;                                                  //hardcoded sesson untill we integrate the codebase together
+  $qry = "SELECT * FROM `users` WHERE `ID`='$session_id'";                //
+  $user_datalist = $GLOBALS[ 'con' ]->query($qry);                        //      fetch details of the current loggedin user
+  $user_data = $user_datalist->fetch_assoc();                             //
 
-  $getList = mysqli_query($GLOBALS['con'],"SELECT * FROM users");
+  $getList = mysqli_query($GLOBALS['con'],"SELECT * FROM users");         // fetch all user details
   $i=1;
-  while ($result = mysqli_fetch_array($getList)) {
+  while ($result = mysqli_fetch_array($getList)) {                       //loop through all the users
     $id = $result['ID'];
     $name = $result['name'];
 		$email = $result['email'];
@@ -21,7 +21,7 @@
 		$img_scr= $result['picture'];
     $bio = $result['bio'];
     $isadmin = 'disabled="disabled"';
-    if(!$result['isadmin'] && $user_data['isadmin']){ $isadmin="";}
+    if(!$result['isadmin'] && $user_data['isadmin']){ $isadmin="";}                       //unique modal for every user which gets triggered when you click their picture
     echo '
           <!-- Modal -->
               <div id="profilemodal'.$i.'" class="modal fade" role="dialog">
@@ -31,7 +31,7 @@
                     <div class="modal-content">
                       <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                      
+
                         <h3 class="modal-title" align="center" >'.$name.'</h3>
                       </div>
                         <div class="modal-body">
@@ -51,8 +51,8 @@
 
                 </div>
               </div>
-          
-          <a data-toggle="modal" href="#profilemodal'.$i.'"><img class="img-circle" src="'.$img_scr.'" width=400 height=400 alt="error"></a>
+
+          <a data-toggle="modal" href="#profilemodal'.$i.'"><img class="img-circle" src="'.$img_scr.'" width=400 height=400 alt="error"></a>    <!--Image to click , which will trigger respective profilemodal-->
           ';
           $i++;
 	     }
@@ -64,11 +64,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>                      <!--source to include bootstrap and jquery-->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <script>
-    $(document).ready(function(){
+    $(document).ready(function(){                                                     //jquery script to pass ID of the profile whom you want to make admin
       $("#mkadmin_button").click(function(){
         var xmlhttp = new XMLHttpRequest();
         var identity = document.getElementById("newadminid").value;
@@ -82,7 +82,7 @@
                 alert("Text: " + myobj.message);
             }
         };
-        xmlhttp.open("GET", "makeadmin.php?q=" + identity, true);
+        xmlhttp.open("GET", "makeadmin.php?q=" + identity, true);                     //call makeadmin with id number to provide administrator previllages to that member
         xmlhttp.send();
     })
 });
