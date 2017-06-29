@@ -24,22 +24,22 @@ echo "<nav class=\"navbar navbar-toggleable-md navbar-inverse bg-inverse\">
   </div>
 </nav>";
 
-$qry = "SELECT * FROM users WHERE ID = ".$_SESSION["id"];
-$user_datalist = $GLOBALS[ 'con' ]->query($qry);
-$user_data = $user_datalist->fetch_assoc();
+$qry = "SELECT * FROM users WHERE ID = ".$_SESSION["id"];                       //
+$user_datalist = $GLOBALS[ 'con' ]->query($qry);                                //fetch data of loggedin user
+$user_data = $user_datalist->fetch_assoc();                                     //
 
-$img_scr= $user_data['picture'];
+$img_scr= $user_data['picture'];                                                //
 //echo "<img src=$img_scr width=400 height=400 alt='error'>";
 
 if ( isset( $_POST[ 'id' ] ) ) {
 
-	$name = $_POST[ "name" ];				echo $name . "<br>";
+	$name = $_POST[ "name" ];				echo $name . "<br>";                          //asigning new names to entered data
 	$id = $_POST[ "id" ];						echo $id . "<br>";
 	$email = $_POST[ "email" ];			echo $email . "<br>";
 	$github = $_POST[ "github" ];		echo $github . "<br>";
 	$bio = $_POST[ "bio" ];					echo $bio . "<br>";
 
-	if(isset($_FILES['image'])){
+	if(isset($_FILES['image'])){                                                  //managing uploaded picture
 		 $errors= array();
 		 $file_name = $_FILES['image']['name'];
 		 $file_size =$_FILES['image']['size'];
@@ -50,11 +50,11 @@ if ( isset( $_POST[ 'id' ] ) ) {
 
 		 $expensions= array("jpeg","jpg","png");
 
-		 if(in_array($file_ext,$expensions)=== false){
+		 if(in_array($file_ext,$expensions)=== false){                              //checking for compatible extention
 				$errors[]="extension not allowed, please choose a JPEG or PNG file.";
 		 }
 
-		 if($file_size > 2097152){
+		 if($file_size > 2097152){                                                  //checking size limit
 				$errors[]='File size must be excately 2 MB';
 		 }
 
@@ -63,10 +63,10 @@ if ( isset( $_POST[ 'id' ] ) ) {
 				#echo $file_name;
 				move_uploaded_file($file_tmp,$file_name);
 				echo " Profile pic uploaded";
-				$file_name = "\\\\user-profile\\\\dp\\\\" . $id . "." . $file_ext;
-				$str = "UPDATE INTO `users` (`name`, `picture`, `email`, `github`, `bio`, `id`) VALUES ('{$name}', '{$file_name}', '{$email}', '{$github}', '{$bio}', '{$id}') WHERE `ID`='$session_id'";
+				$file_name = "\\\\user-profile\\\\dp\\\\" . $id . "." . $file_ext;      //saving file in "dp" folder
+				//$str = "UPDATE INTO `users` (`name`, `picture`, `email`, `github`, `bio`, `id`) VALUES ('{$name}', '{$file_name}', '{$email}', '{$github}', '{$bio}', '{$id}') WHERE `ID`='$session_id'";
 				$str2="UPDATE `users` SET `ID`='{$id}',`name`='{$name}',`picture`='{$file_name}',`email`='{$email}',`github`='{$github}',`bio`='{$bio}' WHERE `ID`='$session_id'";
-				$q = mysqli_query( $GLOBALS[ 'con' ], $str2 );
+				$q = mysqli_query( $GLOBALS[ 'con' ], $str2 );                          //updating database with new info
 		 }else{
 				print_r($errors);
 		 }
@@ -102,7 +102,7 @@ if ( isset( $_POST[ 'id' ] ) ) {
 </head>
 
 <body>
-<div class="panel panel-primary">
+<div class="panel panel-primary">                                               <!--bootstrap modal so that things look nice-->
       <div class="panel-heading">Edit Profile</div>
       <div class="panel-body">
 
@@ -145,7 +145,7 @@ if ( isset( $_POST[ 'id' ] ) ) {
       <input type="file" name="image" class="form-control" id="image">
     </div>
   </div>
-  <div class="form-group"> 
+  <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
       <button type="submit" class="btn btn-success">Save</button>
     </div>
