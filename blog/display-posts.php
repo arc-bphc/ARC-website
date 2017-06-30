@@ -9,7 +9,8 @@
     <script src="jquery.min.js"></script>
     <script src="./bootstrap4/js/bootstrap.min.js"></script>
 	<script src="https://use.fontawesome.com/1523c943cd.js"></script>
-	<script src="https://apis.google.com/js/platform.js" async defer></script> 
+	<script src="https://apis.google.com/js/platform.js" async defer></script>
+	<script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
     <script type="text/javascript" src="./display-posts.js"></script>
 </head>
 <body>
