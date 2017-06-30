@@ -248,7 +248,7 @@ nav{
      -webkit-transition: all 0.3s ease-out;
              transition: all 0.3s ease-out;
 }
-.loader #loader-wrapper{
+.loaded #loader-wrapper{
     visibility: hidden;
     -webkit-transform: translateY(-100%);
         -ms-transform: translateY(-100%);
