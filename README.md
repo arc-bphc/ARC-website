@@ -6,8 +6,8 @@ A dynamic website and blog for the automation and robotics club at bits pilani h
 ## Database
 ### users
 
-`id`|name|email|password|isadmin
----|---|---|---|---
+`id`|name|email|password|isadmin|picture|github|bio
+---|---|---|---|---|---|---|---
 + This table consists of all the registered users and their relevent information.
 + The Is Admin field determines whether  a particular user has access to the admin functions.
 + Here ID is a primary key and auto-increamented.
