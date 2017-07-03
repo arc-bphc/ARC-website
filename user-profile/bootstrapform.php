@@ -3,9 +3,9 @@ include("connect.php");
 session_start();
 if ( $GLOBALS[ 'con' ] ) {
 
-if($_SESSION["login-status"] != 1 && $_SESSION["login-status"] != 2) {
+/*if($_SESSION["login-status"] != 1 && $_SESSION["login-status"] != 2) {
   header("Location: ../../blog/sign.php");
-}
+}*/
 
 echo "<nav class=\"navbar navbar-toggleable-md navbar-inverse bg-inverse\">
   <button class=\"navbar-toggler navbar-toggler-right\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarTogglerDemo02\" aria-controls=\"navbarTogglerDemo02\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
@@ -23,15 +23,14 @@ echo "<nav class=\"navbar navbar-toggleable-md navbar-inverse bg-inverse\">
     </ul>
   </div>
 </nav>";
-
+$_SESSION["id"]=2016441;
 $qry = "SELECT * FROM users WHERE ID = ".$_SESSION["id"];                       //
 $user_datalist = $GLOBALS[ 'con' ]->query($qry);                                //fetch data of loggedin user
 $user_data = $user_datalist->fetch_assoc();                                     //
-
 $img_scr= $user_data['picture'];                                                //
 //echo "<img src=$img_scr width=400 height=400 alt='error'>";
 
-if ( isset( $_POST[ 'id' ] ) ) {
+/*if ( isset( $_POST[ 'id' ] ) ) {
 
 	$name = $_POST[ "name" ];				echo $name . "<br>";                          //asigning new names to entered data
 	$id = $_POST[ "id" ];						echo $id . "<br>";
@@ -80,7 +79,7 @@ if ( isset( $_POST[ 'id' ] ) ) {
 
 	mysqli_close( $GLOBALS[ 'con' ] );
 	exit();
-}
+}*/
 }
 ?>
 <html>
@@ -88,9 +87,7 @@ if ( isset( $_POST[ 'id' ] ) ) {
 <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="../../blog/bootstrap4/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <script>
       function signOut() {
       var auth2 = gapi.auth2.getAuthInstance();
@@ -102,51 +99,51 @@ if ( isset( $_POST[ 'id' ] ) ) {
 </head>
 
 <body>
-<div class="panel panel-primary">                                               <!--bootstrap modal so that things look nice-->
-      <div class="panel-heading">Edit Profile</div>
-      <div class="panel-body">
+<div class="card text-center offset-md-1 col-md-10">                                               <!--bootstrap card so that things look nice-->
+      <div class="card-header">Edit Profile</div>
+      <div class="card-block">
 
       <p align="center"><img src="<?php echo htmlspecialchars($img_scr);?>" width=400 height=400 alt='error'></p>
 
-	<form class="form-horizontal" action="<?php $_PHP_SELF ?>" method="POST" enctype="multipart/form-data">
-  <div class="form-group">
-    <label class="control-label col-sm-2" for="email">Email:</label>
-    <div class="col-sm-10">
+	<form action="updatedata.php" method="POST" enctype="multipart/form-data">
+  <div class="form-group row">
+    <label class="col-2 col-form-label offset-md-1" for="email">Email:</label>
+    <div class="col-7">
       <input type="email" name="email" class="form-control" id="email" placeholder="<?php echo htmlspecialchars($user_data["email"]);?>">
     </div>
   </div>
-  <div class="form-group">
-    <label class="control-label col-sm-2" for="name">Name:</label>
-    <div class="col-sm-10">
+  <div class="form-group row">
+    <label class="col-2 col-form-label offset-md-1" for="name">Name:</label>
+    <div class="col-7">
       <input type="text" name="name" class="form-control" id="name" placeholder="<?php echo htmlspecialchars($user_data["name"]);?>">
     </div>
   </div>
-  <div class="form-group">
-    <label class="control-label col-sm-2" for="id">ID:</label>
-    <div class="col-sm-10">
+  <div class="form-group row">
+    <label class="col-2 col-form-label offset-md-1" for="id">ID:</label>
+    <div class="col-7">
       <input type="number" name="id" class="form-control" id="id" placeholder="<?php echo htmlspecialchars($user_data["ID"]);?>">
     </div>
   </div>
-  <div class="form-group">
-    <label class="control-label col-sm-2" for="github">Github:</label>
-    <div class="col-sm-10">
+  <div class="form-group row">
+    <label class="col-2 col-form-label offset-md-1" for="github">Github:</label>
+    <div class="col-7">
       <input type="url" name="github" class="form-control" id="github" placeholder="<?php echo htmlspecialchars($user_data["github"]);?>">
     </div>
   </div>
-  <div class="form-group">
-    <label class="control-label col-sm-2" for="bio">Bio:</label>
-    <div class="col-sm-10">
+  <div class="form-group row">
+    <label class="col-2 col-form-label offset-md-1" for="bio">Bio:</label>
+    <div class="col-7">
       <input type="text" name="bio" class="form-control" id="bio" placeholder="<?php echo htmlspecialchars($user_data["bio"]);?>">
     </div>
   </div>
-  <div class="form-group">
-    <label class="control-label col-sm-2" for="image">DP:</label>
-    <div class="col-sm-10">
+  <div class="form-group row">
+    <label class="col-2 col-form-label offset-md-1" for="image">DP:</label>
+    <div class="col-7">
       <input type="file" name="image" class="form-control" id="image">
     </div>
   </div>
-  <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
+  <div class="form-group row">
+    <div class="col-8  offset-sm-1 text-right">
       <button type="submit" class="btn btn-success">Save</button>
     </div>
   </div>
@@ -154,6 +151,11 @@ if ( isset( $_POST[ 'id' ] ) ) {
 
 </div>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
 </body>
 
 </html>
