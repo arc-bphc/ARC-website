@@ -106,9 +106,15 @@ echo "<nav class=\"navbar navbar-toggleable-md navbar-inverse bg-inverse\">
       <div class="card-header">Edit Profile</div>
       <div class="card-block">
 
-      <p align="center"><img src="<?php echo htmlspecialchars($img_scr);?>" width=400 height=400 alt='error'></p>
-
 	<form action="updatedata.php" method="POST" enctype="multipart/form-data">
+
+    <div class="form-inline justify-content-center">
+      <label class="col-2 col-form-label" for="image">
+        <input type="file" name="image" class="form-control" id="image" style="display:none;">
+        <img src="<?php echo htmlspecialchars($img_scr);?>" width=400 height=400 data-toggle="tooltip" data-placement="top" title="click here to change DP" alt='error'>             <!--added tooltip which shows when we hover over the image-->
+      </label>
+    </div>
+
   <div class="form-group row">
     <label class="col-2 col-form-label offset-md-1" for="email">Email:</label>
     <div class="col-7">
@@ -139,12 +145,7 @@ echo "<nav class=\"navbar navbar-toggleable-md navbar-inverse bg-inverse\">
       <input type="text" name="bio" class="form-control" id="bio" placeholder="<?php echo htmlspecialchars($user_data["bio"]);?>">
     </div>
   </div>
-  <div class="form-group row">
-    <label class="col-2 col-form-label offset-md-1" for="image">DP:</label>
-    <div class="col-7">
-      <input type="file" name="image" class="form-control" id="image">
-    </div>
-  </div>
+
   <div class="form-group row">
     <div class="col-8  offset-sm-1 text-right">
       <button type="submit" class="btn btn-success">Save</button>
@@ -158,6 +159,11 @@ echo "<nav class=\"navbar navbar-toggleable-md navbar-inverse bg-inverse\">
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <script>
+      $(function () {
+          $('[data-toggle="tooltip"]').tooltip()          //this script enables tooltip
+        })
+    </script>
 
 </body>
 
