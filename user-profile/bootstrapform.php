@@ -81,6 +81,51 @@ $img_scr= $user_data['picture'];                                                
       });
     }
     </script>
+
+    <style>
+  .container {
+      position: relative;
+      margin: auto;
+      width: auto;
+      height: auto;
+  }
+
+  .image {
+    opacity: 1;
+    display: block;
+    width: 400px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    transition: .5s ease;
+    backface-visibility: hidden;
+  }
+
+  .middle {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%)
+  }
+
+  .container:hover .image {
+    opacity: 0.3;
+  }
+
+  .container:hover .middle {
+    opacity: 1;
+  }
+
+  .text {
+    background-color: #000000;
+    color: white;
+    font-size: 16px;
+    padding: 16px 32px;
+  }
+  </style>
 </head>
 
 <body>
@@ -109,10 +154,15 @@ echo "<nav class=\"navbar navbar-toggleable-md navbar-inverse bg-inverse\">
 	<form action="updatedata.php" method="POST" enctype="multipart/form-data">
 
     <div class="form-inline justify-content-center">
-      <label class="col-2 col-form-label" for="image">
-        <input type="file" name="image" class="form-control" id="image" style="display:none;">
-        <img src="<?php echo htmlspecialchars($img_scr);?>" width=400 height=400 data-toggle="tooltip" data-placement="top" title="click here to change DP" alt='error'>             <!--added tooltip which shows when we hover over the image-->
-      </label>
+      <label class="form-label" for="image">
+        <div class="container">
+          <input type="file" name="image" class="form-control" id="image" style="display:none;">
+          <img src="<?php echo htmlspecialchars($img_scr);?>" class="image" alt='error'>             <!--added tooltip which shows when we hover over the image-->
+          <div class="middle">
+            <div class="text">click to change DP</div>
+          </div>
+        </div>
+          </label>
     </div>
 
   <div class="form-group row">
