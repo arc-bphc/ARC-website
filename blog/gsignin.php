@@ -40,6 +40,7 @@ else{
   if($row['password'] == $passwordA){
       $_SESSION["id"] = $row['id'];
       $_SESSION["user"] = $row['name'];
+      $_SESSION["picture"] = $row['picture'];
       if($row['isadmin'] == 1){
         $_SESSION["login-status"] = 2;
       }

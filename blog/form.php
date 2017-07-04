@@ -23,30 +23,38 @@
         width: 35px;
         margin-right: 15px;
       }
+      #ckeditor{
+        margin-top: 30px;
+      }
+      #cke_editor1{
+        margin: auto;
+      }
+
     </style>
     <script src="./jquery.min.js"></script>
     <script src="./bootstrap4/js/bootstrap.min.js"></script>
     <script src="https://use.fontawesome.com/1523c943cd.js"></script>
     <script src="https://apis.google.com/js/platform.js" async defer></script> 
+    <script src="../ckeditor/ckeditor.js"></script>
     <script>
-    $( document ).ready(function() {
+    // $( document ).ready(function() {
 
-        $('.alphabetsOnly').bind('keyup blur',function(){ 
-            var node = $(this);
-            node.val(node.val().replace(/[^a-z]/g,'') ); }
-        );
-        $('.numbersOnly').bind('keyup blur',function(){ 
-            var node = $(this);
-            node.val(node.val().replace(/[^0-9]/,'') ); }
-        );
+    //     $('.alphabetsOnly').bind('keyup blur',function(){ 
+    //         var node = $(this);
+    //         node.val(node.val().replace(/[^a-z]/g,'') ); }
+    //     );
+    //     $('.numbersOnly').bind('keyup blur',function(){ 
+    //         var node = $(this);
+    //         node.val(node.val().replace(/[^0-9]/,'') ); }
+    //     );
 
-    });
-    function signOut() {
-      var auth2 = gapi.auth2.getAuthInstance();
-      auth2.signOut().then(function () {
-        console.log('User signed out.');
-      });
-    }
+    // });
+    // function signOut() {
+    //   var auth2 = gapi.auth2.getAuthInstance();
+    //   auth2.signOut().then(function () {
+    //     console.log('User signed out.');
+    //   });
+    // }
 
 </script>
 </head>
@@ -70,7 +78,7 @@ if(!isset($_SESSION["login-status"]) || empty($_SESSION["login-status"])) {
     echo "<img class=\"profile-pic rounded\" src=\"images/default-user.png\">Guest";
 }
 else {
-  echo "<img class=\"profile-pic rounded\" src=\"images/default-user.png\">" . $_SESSION["user"];
+  echo "<img class=\"profile-pic rounded\" src=\"" . $_SESSION["picture"] . "\">" . $_SESSION["user"];
 }
 
 echo "</a>
@@ -105,7 +113,7 @@ echo "</a>
 ?>
 
 
-<h2 class="col-sm-offset-5">New Post:</h2>
+<!-- <h2 class="col-sm-offset-5">New Post:</h2>
 <hr>
 <form class="" name="form1" action="submit-post.php" method="post" enctype="multipart/form-data">
   <div class="form-group row">
@@ -140,7 +148,39 @@ echo "</a>
     </div>
   </div>
 </form>
-
+ -->
+<!-- CKEditor trial -->
+<div id="ckeditor">
+  <form name="form2" action="submit.php" method="post" enctype="multipart/form-data">
+    <div class="form-group row">
+      <label class="col-sm-2 form-control-label">Blog Title:</label>
+      <div class="col-sm-8">
+        <input type="text" class="form-control" id="blogTitle" name="blogTitle" placeholder="Enter Title">
+      </div>
+    </div>
+    <textarea name="editor1" id="editor1" rows="10" cols="80">
+       This is my textarea to be replaced with CKEditor.
+    </textarea>
+    <script type="text/javascript">
+      CKEDITOR.replace('editor1',{
+        height: 300,
+        width: 1000,
+        filebrowserUploadUrl: "./fileUpload.php",
+        // filebrowserBrowseUrl: '/ckfinder/ckfinder.html',
+        // filebrowserImageBrowseUrl: '../ckfinder/ckfinder.html?type=Images',
+        // filebrowserFlashBrowseUrl: '../ckfinder/ckfinder.html?type=Flash',
+        // filebrowserUploadUrl: '../ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
+        // filebrowserImageUploadUrl: '../ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
+        // filebrowserFlashUploadUrl: '../ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash'
+      });
+    </script>
+    <div class="form-group button row">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" name="submit" class="submit btn btn-secondary">Submit</button>
+      </div>
+  </div>
+  </form>
+</div>
 
 </body>
 </html> 

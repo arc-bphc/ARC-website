@@ -69,7 +69,7 @@ if(isset($_GET['email']) && isset($_GET['code'])){
   <div id="signin" class="col-sm-4 col-sm-offset-2">
     <h2 class="col-sm-offset-5">Log In</h2>
     <form class="form-horizontal" name="signinForm" action="signin.php" method="post" enctype="multipart/form-data">
-      <div class="form-group">
+      <!-- <div class="form-group">
         <label class="col-sm-3 control-label">Email Id:</label>
         <div class="col-sm-8">
           <input type="text" class="form-control" id="email2" name="email" placeholder="Enter email">
@@ -80,13 +80,13 @@ if(isset($_GET['email']) && isset($_GET['code'])){
         <div class="col-sm-8">
           <input type="Password" class="form-control" id="passwordA" name="passwordA" placeholder="Enter password">
         </div>
-      </div>
+      </div> -->
       <div class="buttons">
-      <div class="form-group">
+     <!--  <div class="form-group">
         <div class="col-sm-offset-5 col-sm-10">
           <button type="submit" id="submit-signin" name="submit" class="submit btn btn-default">Sign In</button>
         </div>
-      </div>
+      </div> -->
         <div class="button-wrapper">
           <button id="customSignInBtn" class="loginBtn loginBtn--google" type="button">
             <span>
@@ -111,7 +111,7 @@ if(isset($_GET['email']) && isset($_GET['code'])){
   <div id = "signup" class="col-sm-4">
     <h2 class="col-sm-offset-5">Sign Up</h2>
     <form class="form-horizontal" name="signupForm" action="signup.php" method="post" enctype="multipart/form-data">
-      <div class="form-group">
+      <!-- <div class="form-group">
         <label class="col-sm-3 control-label">First Name:</label>
         <div class="col-sm-8">
           <input type="text" class="form-control alphabetsOnly" id="firstName" name="firstName" placeholder="Enter first name">
@@ -141,13 +141,13 @@ if(isset($_GET['email']) && isset($_GET['code'])){
         <div class="col-sm-8">
           <input type="password" class="form-control" id="repassword" name="repassword" placeholder="re-enter password">
         </div>
-      </div>
+      </div> -->
       <div class = "buttons">
-      <div class="form-group">
+<!--       <div class="form-group">
         <div class="col-sm-offset-5 col-sm-10">
           <button type="submit" id="submit-signup" name="submit" class="submit btn btn-default">Sign Up</button>
         </div>
-      </div>
+      </div> -->
       <div class="button-wrapper">
         <button id="customSignUpBtn" class="loginBtn loginBtn--google" type="button">
           <span>
