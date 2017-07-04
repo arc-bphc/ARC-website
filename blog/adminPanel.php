@@ -44,7 +44,7 @@ echo "<nav class=\"navbar navbar-toggleable-md navbar-inverse bg-inverse\">
       </li>
     </ul>
 	<form class=\"form-inline my-2 my-lg-0\">
-    <input id=\"searchBar\" class=\"form-control mr-sm-2\" type=\"text\" onkeyup=\"searchBlog()\" placeholder=\"Search\">
+    <input id=\"searchBar\" class=\"form-control mr-sm-2\" type=\"text\" onkeyup=\"searchBlog()\" placeholder=\"Search Title or Author\">
     </form>
   </div>
 </nav>";

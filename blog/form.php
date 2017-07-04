@@ -28,6 +28,7 @@
       }
       #cke_editor1{
         margin: auto;
+        width: 60%;
       }
 
     </style>
@@ -159,12 +160,11 @@ echo "</a>
       </div>
     </div>
     <textarea name="editor1" id="editor1" rows="10" cols="80">
-       This is my textarea to be replaced with CKEditor.
+       
     </textarea>
     <script type="text/javascript">
       CKEDITOR.replace('editor1',{
-        height: 300,
-        width: 1000,
+        height: 600,
         filebrowserUploadUrl: "./fileUpload.php",
         // filebrowserBrowseUrl: '/ckfinder/ckfinder.html',
         // filebrowserImageBrowseUrl: '../ckfinder/ckfinder.html?type=Images',
@@ -175,7 +175,7 @@ echo "</a>
       });
     </script>
     <div class="form-group button row">
-      <div class="col-sm-offset-2 col-sm-10">
+      <div class="col-sm-12">
         <button type="submit" name="submit" class="submit btn btn-secondary">Submit</button>
       </div>
   </div>
