@@ -31,18 +31,19 @@
 
   function SignUp(googleUser) {
     var profile = googleUser.getBasicProfile();
-
+    // console.log(profile);
 
     var obj, dbParam, xmlhttp;
     obj = {
        "id" :  profile.getId(),
        "name" : profile.getName(),
-       "email" : profile.getEmail()
+       "email" : profile.getEmail(),
+       "picture" : profile.getImageUrl()
     };
-    //console.log(obj);
+    // console.log(obj);
     gapi.auth2.getAuthInstance().disconnect();
     dbParam = JSON.stringify(obj);
-
+    // console.log(dbParam);
     xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
@@ -164,23 +165,26 @@ function FBsignup() {
 
 function fbsignup() {
     FB.api('/me','GET', {fields: 'name,id,email,picture.type(large)'}, function(response) {
-    var obj, dbParam, xmlhttp;
+    var obj, dbParam, xmlhttp,picture;
+    //console.log(response);
+    var picture = response.picture.data.url;
+    var picture = encodeURIComponent(picture);
     obj = {
        "id" :  response.id,
        "name" : response.name,
-       "email" : response.email
+       "email" : response.email,
+       "picture" : picture
     };
-    //console.log(obj);
     gapi.auth2.getAuthInstance().disconnect();
     dbParam = JSON.stringify(obj);
-
+    console.log(dbParam);
     xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
         var test = this.responseText;
         test = test.replace(/\"/g, "");  
         document.getElementById("error").innerHTML = test;
-          
+
       }
 
     };

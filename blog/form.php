@@ -78,7 +78,7 @@ if(!isset($_SESSION["login-status"]) || empty($_SESSION["login-status"])) {
     echo "<img class=\"profile-pic rounded\" src=\"images/default-user.png\">Guest";
 }
 else {
-  echo "<img class=\"profile-pic rounded\" src=\"images/default-user.png\">" . $_SESSION["user"];
+  echo "<img class=\"profile-pic rounded\" src=\"" . $_SESSION["picture"] . "\">" . $_SESSION["user"];
 }
 
 echo "</a>

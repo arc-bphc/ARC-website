@@ -6,6 +6,7 @@ $obj = json_decode($_GET["x"], false);
 $name = $obj->name;
 $email = $obj->email;
 $passwordB = $obj->id;
+$picture = $obj->picture;
 $isadmin = 0;
 
 
@@ -25,8 +26,8 @@ if ($result->num_rows > 0) {
   $status = "<font color=red> Email already exists</font>";
 }
 else{
-	$sql = "INSERT INTO users (name, email, password, isadmin)
-	VALUES ('$name', '$email', '$passwordB', $isadmin)";
+	$sql = "INSERT INTO users (name, email, password, isadmin, picture)
+	VALUES ('$name', '$email', '$passwordB', $isadmin, '$picture')";
 
 	if ($conn->query($sql)) {
 	    $status = "<font color = \"green\"> User created successfully.<br>Please Sign In</font>";
