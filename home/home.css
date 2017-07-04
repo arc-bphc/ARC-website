@@ -1,4 +1,5 @@
-body {
+body,html {
+    height: 100%; 
     font: 400 15px Lato, sans-serif;
     line-height: 1.8;
     color: #818181;
@@ -98,6 +99,14 @@ h4 {
     margin: 15px 0;
     background-color: #f4511e;
     color: #fff;
+}
+.parallax{
+background-image: url("C:\\\\Users\\\\Hp\\\\Desktop\\\\img\\\\about.jpg");
+height: 100%;
+background-attachment: fixed;
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
 }
 
 footer .glyphicon {
