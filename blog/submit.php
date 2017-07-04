@@ -3,7 +3,7 @@
 $blogTitle = $_POST["blogTitle"];
 $author = $_SESSION["user"];
 $content = $_POST['editor1'];
-print_r($_POST);
+
 if($blogTitle == ""){
 	die("invalid title");
     return false;

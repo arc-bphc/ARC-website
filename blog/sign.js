@@ -91,62 +91,62 @@
 
   }
 
-    $( document ).ready(function() {
+    // $( document ).ready(function() {
 
-        $('.alphabetsOnly').bind('keyup blur',function(){ 
-            var node = $(this);
-            node.val(node.val().replace(/[^a-z]/g,'') ); }
-        );
-        $('.numbersOnly').bind('keyup blur',function(){ 
-            var node = $(this);
-            node.val(node.val().replace(/[^0-9]/,'') ); }
-        );
-
-
-        $( "#submit-signup" ).click(function(){
-            var userinput1 = $("#email1").val();
-            var pattern1 = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
-
-            if($("#firstName").val() == ""){
-                alert("Enter first name");
-                return false;
-            }
-            else if($("#lastName").val() == ""){
-                alert("Enter last name");
-                return false;
-            }
-            else if($("#password").val() == ""){
-                alert("Enter valid password");
-                return false;
-            }
-            else if($("#passwordB").val() != $("#repassword").val()){
-                alert("Passwords not same");
-                return false;
-            }
-            if(!pattern1.test(userinput1))
-            {
-                alert('not a valid e-mail address');
-                    return false;
-            }
-        });
-
-        $( "#submit-signin" ).click(function(){
-            var userinput2 = $("#email2").val();
-            var pattern2 = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+    //     $('.alphabetsOnly').bind('keyup blur',function(){ 
+    //         var node = $(this);
+    //         node.val(node.val().replace(/[^a-z]/g,'') ); }
+    //     );
+    //     $('.numbersOnly').bind('keyup blur',function(){ 
+    //         var node = $(this);
+    //         node.val(node.val().replace(/[^0-9]/,'') ); }
+    //     );
 
 
-            if($("#passwordA").val() == ""){
-                alert("Enter valid password");
-                return false;
-            }
+    //     $( "#submit-signup" ).click(function(){
+    //         var userinput1 = $("#email1").val();
+    //         var pattern1 = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
 
-            if(!pattern2.test(userinput2))
-            {
-                alert('Not a valid e-mail address');
-                    return false;
-            }
-        });
-    });
+    //         if($("#firstName").val() == ""){
+    //             alert("Enter first name");
+    //             return false;
+    //         }
+    //         else if($("#lastName").val() == ""){
+    //             alert("Enter last name");
+    //             return false;
+    //         }
+    //         else if($("#password").val() == ""){
+    //             alert("Enter valid password");
+    //             return false;
+    //         }
+    //         else if($("#passwordB").val() != $("#repassword").val()){
+    //             alert("Passwords not same");
+    //             return false;
+    //         }
+    //         if(!pattern1.test(userinput1))
+    //         {
+    //             alert('not a valid e-mail address');
+    //                 return false;
+    //         }
+    //     });
+
+    //     $( "#submit-signin" ).click(function(){
+    //         var userinput2 = $("#email2").val();
+    //         var pattern2 = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+
+
+    //         if($("#passwordA").val() == ""){
+    //             alert("Enter valid password");
+    //             return false;
+    //         }
+
+    //         if(!pattern2.test(userinput2))
+    //         {
+    //             alert('Not a valid e-mail address');
+    //                 return false;
+    //         }
+    //     });
+    // });
 
 
 //-------------------------facebook sign up---------------------------------
