@@ -9,7 +9,6 @@
     <script src="jquery.min.js"></script>
     <script src="./bootstrap4/js/bootstrap.min.js"></script>
 	<script src="https://use.fontawesome.com/1523c943cd.js"></script>
-	<script src="https://apis.google.com/js/platform.js" async defer></script>
 	<script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
     <script type="text/javascript" src="./display-posts.js"></script>
 </head>
@@ -124,7 +123,7 @@ if ($result->num_rows > 0) {
 
 			echo "<img class = \"card-img centerimages\" src=\"" . $image . "\" height = \"100%\" width = \"100%\">";
 
-	    	echo "<a href=\"\"><div class = \"card-img-overlay\"><h4 class = \"card-title\">" . $row["title"]. "</h4></div></a>";
+	    	echo "<a href=\"viewPost.php?postid=$postid\"><div class = \"card-img-overlay\"><h4 class = \"card-title\">" . $row["title"]. "</h4></div></a>";
 
 	        
 	        echo "<div class = \"card-footer\">" ."By:- <div class=\"author\">". $row["author"] . "</div><br>". $row["uploadtime"];
