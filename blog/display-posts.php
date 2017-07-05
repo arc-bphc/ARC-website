@@ -63,6 +63,20 @@ echo "Logout";
 
 echo "</a>
       </li>
+      <li class=\"nav-item\">
+      <div class=\"dropdown\">
+		  <button class=\"btn btn-secondary dropdown-toggle\" type=\"button\" id=\"dropdownMenuButton\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
+		    Category
+		  </button>
+		  <div class=\"dropdown-menu\" aria-labelledby=\"dropdownMenuButton\">
+		  	<a class=\"dropdown-item\" href=\"#\">All</a>
+		    <a class=\"dropdown-item\" href=\"#\">General</a>
+		    <a class=\"dropdown-item\" href=\"#\">Software</a>
+		    <a class=\"dropdown-item\" href=\"#\">Arduino</a>
+		    <a class=\"dropdown-item\" href=\"#\">Miscellaneous</a>
+		  </div>
+		</div>
+      </li>
     </ul>
     <form class=\"form-inline my-2 my-lg-0\">
       <input id=\"searchBar\" class=\"form-control mr-sm-2\" type=\"text\" onkeyup=\"searchBlog()\" placeholder=\"Search Title or Author\">
@@ -81,7 +95,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SELECT * FROM posts where status = 1";
+$sql = "SELECT * FROM blogPosts where status = 1";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
@@ -89,20 +103,28 @@ if ($result->num_rows > 0) {
 	echo "<div class = \"card-deck\">";
     // output data of each row
     while($row = $result->fetch_assoc()) {
-	    	$imageString = $row["images"];
-	    	//print_r($imageString);
-	    	$images = explode('#', $imageString);
-	    	//print_r($images);
-	    	$postid = $row["id"];
-	    	$abstract = substr($row["content"],0,140);    	
+    	
+    		$content = $row["content"];
 
-	    	echo "<div class = \"card col-sm-3\">";
-
-	        if($imageString != ""){
-	        	echo "<img class = \"card-img-top centerimages\" src=\"" . $images[0] . "\" height = \"100%\" width = \"100%\">";
+    		if(strpos($content,"src=")){
+		    	$start = strpos($content,"src=");
+		    	$start+=5;
+		    	$path = substr($content,$start);
+		    	$end = strpos($path,"\"");
+		    	$image = substr($path,0,$end);
 	    	}
-	        echo "<div class = \"card-block\"><h4 class = \"card-title\">" . $row["title"]. "</h4>";
-	        echo "<p class = \"card-text\">" . $abstract . "....  <a style = \"cursor:pointer;color: blue;\" onclick=\"openNav(". $postid .")\">Read More</a></div>";
+	    	else{
+	    		$image = "./uploads/default.jpg";
+	    	}
+	    	// echo "<b>" . $image . "</b>";
+	    	$postid = $row["id"];
+	    	  	
+	    	// print_r($row);
+	    	echo "<div class = \"card col-sm-3 card-inverse\">";
+
+			echo "<img class = \"card-img centerimages\" src=\"" . $image . "\" height = \"100%\" width = \"100%\">";
+
+	    	echo "<div class = \"card-img-overlay\"><h4 class = \"card-title\">" . $row["title"]. "</h4></div>";
 
 	        
 	        echo "<div class = \"card-footer\">" ."By:- <div class=\"author\">". $row["author"] . "</div><br>". $row["uploadtime"];
@@ -112,16 +134,16 @@ if ($result->num_rows > 0) {
 			echo "</div></div>";
 
 
-			echo "<div id=\"myNav\" class=\"overlay\">
-			  <a id=\"closebtn\" href=\"javascript:void(0)\" class=\"closebtn\" onclick=\"closeNav()\">&times;</a>
-			  <div id = \"overlay-content\" class=\"overlay-content\">
-			  	<div id=\"header\"></div>
-			  	<h3>Photos:</h3>
-			    <div class = \"row\" id=\"images\"></div>
-			    <div id=\"content\"></div>
-			    <div id=\"video\"></div>
-			  </div>
-			</div>";
+			// echo "<div id=\"myNav\" class=\"overlay\">
+			//   <a id=\"closebtn\" href=\"javascript:void(0)\" class=\"closebtn\" onclick=\"closeNav()\">&times;</a>
+			//   <div id = \"overlay-content\" class=\"overlay-content\">
+			//   	<div id=\"header\"></div>
+			//   	<h3>Photos:</h3>
+			//     <div class = \"row\" id=\"images\"></div>
+			//     <div id=\"content\"></div>
+			//     <div id=\"video\"></div>
+			//   </div>
+			// </div>";
     }
     echo "</div>";
 

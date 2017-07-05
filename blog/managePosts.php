@@ -13,15 +13,15 @@ if ($conn->connect_error) {
 
 if ($obj->managepost == 1) {
 
-	$conn->query("UPDATE posts SET status = " . (string)$obj->managepost . " where id = " . (string)$obj->postid);
+	$conn->query("UPDATE blogPosts SET status = " . (string)$obj->managepost . " where id = " . (string)$obj->postid);
 }
 else if ($obj->managepost == 0) {
 
-	$conn->query("DELETE from posts where id = " . (string)$obj->postid);
+	$conn->query("DELETE from blogPosts where id = " . (string)$obj->postid);
 }
 else{
 
-	$conn->query("UPDATE posts SET status = 0 where id = " . (string)$obj->postid);
+	$conn->query("UPDATE blogPosts SET status = 0 where id = " . (string)$obj->postid);
 }
 
 $result = $conn->affected_rows;

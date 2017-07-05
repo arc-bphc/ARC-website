@@ -30,6 +30,9 @@
         margin: auto;
         width: 60%;
       }
+      #category-container{
+        margin-top: 30px;
+      }
 
     </style>
     <script src="./jquery.min.js"></script>
@@ -166,19 +169,24 @@ echo "</a>
       CKEDITOR.replace('editor1',{
         height: 600,
         filebrowserUploadUrl: "./fileUpload.php",
-        // filebrowserBrowseUrl: '/ckfinder/ckfinder.html',
-        // filebrowserImageBrowseUrl: '../ckfinder/ckfinder.html?type=Images',
-        // filebrowserFlashBrowseUrl: '../ckfinder/ckfinder.html?type=Flash',
-        // filebrowserUploadUrl: '../ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
-        // filebrowserImageUploadUrl: '../ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
-        // filebrowserFlashUploadUrl: '../ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash'
       });
     </script>
+    <div id="category-container" class="form-group row">
+      <label class="col-sm-3 form-control-label">Category:</label>
+      <div class="col-sm-9">
+        <select name="category" class="custom-select">
+          <option value="1">General</option>
+          <option value="2">Software</option>
+          <option value="3">Arduino</option>
+          <option value="4">Miscellaneous</option>
+        </select>
+      </div>
+    </div>
     <div class="form-group button row">
       <div class="col-sm-12">
         <button type="submit" name="submit" class="submit btn btn-secondary">Submit</button>
       </div>
-  </div>
+    </div>
   </form>
 </div>
 

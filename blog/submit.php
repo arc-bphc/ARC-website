@@ -1,8 +1,9 @@
 <?php
-
+session_start();
 $blogTitle = $_POST["blogTitle"];
 $author = $_SESSION["user"];
 $content = $_POST['editor1'];
+$category = $_POST["category"];
 
 if($blogTitle == ""){
 	die("invalid title");
@@ -15,7 +16,6 @@ else if($content == ""){
 }
 
 
-
 //insert into database
 require_once '../config.php';
 
@@ -26,8 +26,8 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-$sql = "INSERT INTO blogPosts (title, author, content,uploadtime,status)
-VALUES ('$blogTitle', '$author','$content',now(),0)";
+$sql = "INSERT INTO blogPosts (title, author, content,uploadtime,status,category)
+VALUES ('$blogTitle', '$author','$content',now(),0,$category)";
 
 if (mysqli_query($conn, $sql)) {
     echo "<br>New record created successfully";
@@ -40,6 +40,5 @@ if (mysqli_query($conn, $sql)) {
 mysqli_close($conn);
 
 echo "<div><a href = \"./display-posts.php\">See posts</a>";
-?>
 
 ?>
