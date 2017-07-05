@@ -71,21 +71,21 @@ loadJSON('jconfig.json', function printJSONObject(){
 
 }
 
-function closeNav() {
-    document.getElementById("myNav").style.height = "0%";
-   	var div = document.getElementById("images").innerHTML = "";
-   	var body = document.body;
-	body.style.overflow = "scroll";
+// function closeNav() {
+//     document.getElementById("myNav").style.height = "0%";
+//    	var div = document.getElementById("images").innerHTML = "";
+//    	var body = document.body;
+// 	body.style.overflow = "scroll";
 
-}
+// }
 
-function displayImage(image) {
-	var div = document.getElementById("images");
-	console.log(image);
-	div.innerHTML = div.innerHTML + "<div class = \"col-md-3 col-sm-6\"><img height = \"300\" width\
-	 = \"300\" src =\"" + image + "\"></div>";
+// function displayImage(image) {
+// 	var div = document.getElementById("images");
+// 	console.log(image);
+// 	div.innerHTML = div.innerHTML + "<div class = \"col-md-3 col-sm-6\"><img height = \"300\" width\
+// 	 = \"300\" src =\"" + image + "\"></div>";
 
-}
+// }
 
 function manage(postid,pd) {
 	console.log(postid);

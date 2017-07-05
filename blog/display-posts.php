@@ -124,7 +124,7 @@ if ($result->num_rows > 0) {
 
 			echo "<img class = \"card-img centerimages\" src=\"" . $image . "\" height = \"100%\" width = \"100%\">";
 
-	    	echo "<div class = \"card-img-overlay\"><h4 class = \"card-title\">" . $row["title"]. "</h4></div>";
+	    	echo "<a href=\"\"><div class = \"card-img-overlay\"><h4 class = \"card-title\">" . $row["title"]. "</h4></div></a>";
 
 	        
 	        echo "<div class = \"card-footer\">" ."By:- <div class=\"author\">". $row["author"] . "</div><br>". $row["uploadtime"];
