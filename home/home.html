@@ -170,6 +170,9 @@
         <div class="panel-footer">
           <button class="btn btn-lg">Login</button>
         </div>
+      </div>
+      <div id="map" class="container-fluid">                    <!--map to show our location-->
+        <h2 class='text-center'>Location</h2>
       </div>      
     </div>     
     <div class="col-sm-6 col-xs-12">
@@ -213,7 +216,6 @@
   </div>
 </div>
 
-
 <script>
 $(document).ready(function(){
   // Add smooth scrolling to all links in navbar + footer link
@@ -250,6 +252,22 @@ $(document).ready(function(){
   // });
 })
 </script>
+<script>                                                                      //google maps javascript
+      var map;
+      function initMap() {
+        var bphcloc = {lat: 17.5448948, lng: 78.5715885 };                    //our location
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: bphcloc,
+          zoom: 15
+        });
+        var marker = new google.maps.Marker({
+          position: bphcloc,
+          map: map
+        });
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAvi07_F1aDElByzfsGB3AIgwiiH6OscTw&callback=initMap"
+    async defer></script>
 
 </body>
 </html>
