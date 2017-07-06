@@ -1,4 +1,5 @@
 <?php
+session_start();
   require_once 'connect.php';
 
   echo "<b>CHECKING CONNECTION</b> <br>";
@@ -6,7 +7,7 @@
 	   echo 'Successfull <br><br>';
 
 
-  $session_id = 2016441;                                                  //hardcoded sesson untill we integrate the codebase together
+  $session_id = $_SESSION['id'];                                                  //unique session id to identify loggedin user
   $qry = "SELECT * FROM `users` WHERE `ID`='$session_id'";                //
   $user_datalist = $GLOBALS[ 'con' ]->query($qry);                        //      fetch details of the current loggedin user
   $user_data = $user_datalist->fetch_assoc();                             //

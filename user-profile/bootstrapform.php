@@ -1,14 +1,15 @@
 <?php
+session_start();
 include("connect.php");
 session_start();
 if ( $GLOBALS[ 'con' ] ) {
 
-/*if($_SESSION["login-status"] != 1 && $_SESSION["login-status"] != 2) {
+if($_SESSION["login-status"] != 1 && $_SESSION["login-status"] != 2) {
   header("Location: ../../blog/sign.php");
-}*/
+}
 
 
-$_SESSION["id"]=2016441;
+//$_SESSION["id"]=2016441;
 $qry = "SELECT * FROM users WHERE ID = ".$_SESSION["id"];                       //
 $user_datalist = $GLOBALS[ 'con' ]->query($qry);                                //fetch data of loggedin user
 $user_data = $user_datalist->fetch_assoc();                                     //
@@ -138,10 +139,10 @@ echo "<nav class=\"navbar navbar-toggleable-md navbar-inverse bg-inverse\">
     <ul class=\"navbar-nav mr-auto mt-2 mt-md-0\">
       <li class=\"nav-item active\">
         <a class=\"nav-link\" href=\"#\">Home <span class=\"sr-only\">(current)</span></a>
-      <li class=\"nav-item\"><a class=\"nav-link\" href=\"../../blog/form.php\">Write Post</a></li>
-      <li class=\"nav-item\"><a class=\"nav-link\" href=\"../../blog/display-posts.php\">Reader</a></li>
+      <li class=\"nav-item\"><a class=\"nav-link\" href=\"../blog/form.php\">Write Post</a></li>
+      <li class=\"nav-item\"><a class=\"nav-link\" href=\"../blog/display-posts.php\">Reader</a></li>
       <li class=\"nav-item\">
-        <a class=\"nav-link\" href=\"../../blog/sign.php\" onclick=\"signOut();\">Logout</a>
+        <a class=\"nav-link\" href=\"../blog/sign.php\" onclick=\"signOut();\">Logout</a>
       </li>
     </ul>
   </div>
