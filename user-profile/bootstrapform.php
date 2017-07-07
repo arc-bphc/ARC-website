@@ -5,12 +5,12 @@ session_start();
 if ( $GLOBALS[ 'con' ] ) {
 
 if($_SESSION["login-status"] != 1 && $_SESSION["login-status"] != 2) {
-  header("Location: ../../blog/sign.php");
+  header("Location: ../blog/sign.php");
 }
 
 
 //$_SESSION["id"]=2016441;
-$qry = "SELECT * FROM users WHERE ID = ".$_SESSION["id"];                       //
+$qry = "SELECT * FROM users WHERE id = ".$_SESSION["id"];                       //
 $user_datalist = $GLOBALS[ 'con' ]->query($qry);                                //fetch data of loggedin user
 $user_data = $user_datalist->fetch_assoc();                                     //
 $img_scr= $user_data['picture'];                                                //
@@ -170,18 +170,6 @@ echo "<nav class=\"navbar navbar-toggleable-md navbar-inverse bg-inverse\">
     <label class="col-2 col-form-label offset-md-1" for="email">Email:</label>
     <div class="col-7">
       <input type="email" name="email" class="form-control" id="email" placeholder="<?php echo htmlspecialchars($user_data["email"]);?>">
-    </div>
-  </div>
-  <div class="form-group row">
-    <label class="col-2 col-form-label offset-md-1" for="name">Name:</label>
-    <div class="col-7">
-      <input type="text" name="name" class="form-control" id="name" placeholder="<?php echo htmlspecialchars($user_data["name"]);?>">
-    </div>
-  </div>
-  <div class="form-group row">
-    <label class="col-2 col-form-label offset-md-1" for="id">ID:</label>
-    <div class="col-7">
-      <input type="number" name="id" class="form-control" id="id" placeholder="<?php echo htmlspecialchars($user_data["ID"]);?>">
     </div>
   </div>
   <div class="form-group row">
