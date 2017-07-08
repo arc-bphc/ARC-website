@@ -2,9 +2,9 @@
 session_start();
   require_once 'connect.php';
 
-  echo "<b>CHECKING CONNECTION</b> <br>";
+  //echo "<b>CHECKING CONNECTION</b> <br>";
   if ( $GLOBALS[ 'con' ] ) {
-	   echo 'Successfull <br><br>';
+	   //echo 'Successfull <br><br>';
 
 
   $session_id = $_SESSION['id'];                                                  //unique session id to identify loggedin user
@@ -15,7 +15,7 @@ session_start();
   $getList = mysqli_query($GLOBALS['con'],"SELECT * FROM users");         // fetch all user details
   $i=1;
   while ($result = mysqli_fetch_array($getList)) {                       //loop through all the users
-    $id = $result['ID'];
+    $id = $result['id'];
     $name = $result['name'];
 		$email = $result['email'];
     $github = $result['github'];
@@ -25,8 +25,8 @@ session_start();
     if(!$result['isadmin'] && $user_data['isadmin']){ $isadmin="";}                       //unique modal for every user which gets triggered when you click their picture
     echo '
           <!-- Modal -->
-              <div id="profilemodal'.$i.'" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
+              <div id="profilemodal'.$i.'" class="modal custom fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
 
           <!-- Modal content-->
                     <div class="modal-content">
@@ -37,11 +37,22 @@ session_start();
                         </button>
                       </div>
                         <div class="modal-body">
-                          <p align="center"><img class="rounded" align="middle" src="'.$img_scr.'" width=400 alt="error"></p>
-                          <p><h4 class="bg-info" align="center">'.$id.'<h4></p>
-                          <p><h4 class="bg-info" align="center">'.$email.'<h4></p>
-                          <a href='.$github.'><p><h4 class="bg-info" align="center" >github<h4></p></a>
-                          <p><h4 class="bg-info" align="center" >'.$bio.'<h4></p>
+                          <p align="center"><img class="rounded-circle" id="propic" align="middle" src="'.$img_scr.'" alt="error"></p>
+                          <div class="container-fluid" id="section">
+                            <h5 class="title">Name</h5>
+                            <h6 class="subinfo">'.$name.'</h6>
+                          </div>
+                          <div class="container-fluid" id="section">
+                            <h5 class="title">Email Id.</h5>
+                            <h6 class="subinfo">'.$email.'</h6>
+                          </div>
+                          <div class="container-fluid" id="section">
+                            <a href='.$github.'><h6 class="subinfo">Github</h6></a>
+                          </div>
+                          <div class="container-fluid" id="section">
+                            <h5 class="title">Bio</h5>
+                            <h6 class="subinfo">'.$bio.'</h6>
+                          </div>
                         </div>
                       <div class="modal-footer">
                         <input id="newadminid" type="hidden" name="adminid" value='.$id.'></input>
@@ -54,7 +65,9 @@ session_start();
                 </div>
               </div>
 
-          <a data-toggle="modal" href="#profilemodal'.$i.'"><img class="rounded-circle" src="'.$img_scr.'" width=400 height=400 alt="error"></a>    <!--Image to click , which will trigger respective profilemodal-->
+          <a data-toggle="modal" href="#profilemodal'.$i.'">
+
+          <img class="rounded-circle" src="'.$img_scr.'" alt="error"></a>    <!--Image to click , which will trigger respective profilemodal-->
           ';
           $i++;
 	     }
@@ -89,7 +102,45 @@ session_start();
 
 
 </script>
+<style type="text/css">
+  #section {
+    margin: 10px;
+    background-color: rgb(204, 204, 204);
+    padding: 25px;
+}
+  .modal .custom .modal-dialog {
+    
+    background-color: grey;
+    width:40%;
+    margin:0 auto;
+    padding: 0;
+    color: grey;
+    /*add what you want here*/
+}
+  .subinfo {
+    padding-left: 30px;
+  }
 
+  .title {
+    padding-bottom: 15px;
+  }
+  .rounded {
+    margin: 0;
+    padding: 0;
+  }
+  .rounded-circle {
+    width: 20%;
+    height:auto;
+    margin: 2%;
+  }
+  .modal-backdrop {
+   background-color: grey;
+}
+	#propic {
+		width: 50%;
+	}
+
+</style>
  </head>
  <body>
    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
