@@ -39,8 +39,8 @@ else {
 echo "</a>
   <div class=\"collapse navbar-collapse\" id=\"navbarTogglerDemo02\">
     <ul class=\"navbar-nav mr-auto mt-2 mt-md-0\">
-      <li class=\"nav-item active\">
-        <a class=\"nav-link\" href=\"#\">Home <span class=\"sr-only\">(current)</span></a>";
+      <li class=\"nav-item\">
+        <a class=\"nav-link\" href=\"#\">Home</a></li>";
 
 if($_SESSION["login-status"] == 1 || $_SESSION["login-status"] == 2){
 	echo "<li class=\"nav-item\"><a class=\"nav-link\" href=\"form.php\">Write Post</a></li>";
@@ -129,6 +129,7 @@ if ($result->num_rows > 0) {
 
 	        
 	        echo "<div class = \"card-footer\">" ."By:- <div class=\"author\">". $row["author"] . "</div>". "<p id=\"date". $postid ."\"><script>formatDate(\"$date\",$postid);</script></p>";
+
 			if($_SESSION["login-status"] == 2){
 				echo " <div><button onclick=\"manage(". $postid .", 2)\">Withdraw From Publication</button></div> ";
 			}

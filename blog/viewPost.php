@@ -45,6 +45,14 @@
 			margin-bottom: 30px;
 		}
 
+		#content {
+		    border: 15px solid transparent;
+		    padding: 15px;
+		    -webkit-border-image: url(images/border.png) 50 round; /* Safari 3.1-5 */
+		    -o-border-image: url(images/border.png) 50 round; /* Opera 11-12.1 */
+		    border-image: url(images/border.png) 50 round;
+		}
+
 	</style>
 	<script type="text/javascript">
 		function formatDate(str) {
@@ -67,6 +75,7 @@
 </head>
 <body>
 <?php
+session_start();
 
 $postid = $_GET['postid'];
 require_once '../config.php';
@@ -77,8 +86,12 @@ $conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-
-$sql = "SELECT * FROM blogPosts where status = 1 and id = $postid";
+if($_SESSION["login-status"] == 2) {
+   $sql = "SELECT * FROM blogPosts where id = $postid";
+}
+else{
+	$sql = "SELECT * FROM blogPosts where status = 1 and id = $postid";
+}
 $result = $conn->query($sql);
 $row = $result->fetch_assoc();
 $blogPost = $row['content'];

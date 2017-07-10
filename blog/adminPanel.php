@@ -34,8 +34,8 @@ echo "<nav class=\"navbar navbar-toggleable-md navbar-inverse bg-inverse\">
   <a class=\"navbar-brand\" href=\"../user-profile/bootstrapform.php\"><img class=\"profile-pic rounded\" src=\"" . $_SESSION["picture"] . "\">" . $_SESSION["user"]."</a>
   <div class=\"collapse navbar-collapse\" id=\"navbarTogglerDemo02\">
     <ul class=\"navbar-nav mr-auto mt-2 mt-md-0\">
-      <li class=\"nav-item active\">
-        <a class=\"nav-link\" href=\"#\">Home <span class=\"sr-only\">(current)</span></a>
+      <li class=\"nav-item\">
+        <a class=\"nav-link\" href=\"\">Home</a></li>
       <li class=\"nav-item\"><a class=\"nav-link\" href=\"form.php\">Write Post</a></li>
       <li class=\"nav-item\"><a class=\"nav-link\" href=\"display-posts.php\">Reader</a></li>
       <li class=\"nav-item\">
@@ -94,14 +94,18 @@ if ($result->num_rows > 0) {
 	    	}
 	    	// echo "<b>" . $image . "</b>";
 	    	$postid = $row["id"];
+	    	$category = $row["category"];
+	    	$date = substr($row["uploadtime"],0,10);
+
 	    	  	
-	    	// print_r($row);
-	    	echo "<div class = \"card col-sm-3 card-inverse\">";
+			echo "<div class = \"card col-sm-3 card-inverse " . $category . "\">";
 
 			echo "<img class = \"card-img centerimages\" src=\"" . $image . "\" height = \"100%\" width = \"100%\">";
 
-	    	echo "<div class = \"card-img-overlay\"><h4 class = \"card-title\">" . $row["title"]. "</h4></div>";
-	    	echo "<div class = \"card-footer\">" ."By:- <div class=\"author\">". $row["author"] . "</div><br>". $row["uploadtime"] . " 
+	    	echo "<a href=\"viewPost.php?postid=$postid\"><div class = \"card-img-overlay\"><h4 class = \"card-title\">" . $row["title"]. "</h4></div></a>";
+
+	        
+	        echo "<div class = \"card-footer\">" ."By:- <div class=\"author\">". $row["author"] . "</div>". "<p id=\"date". $postid ."\"><script>formatDate(\"$date\",$postid);</script></p>";	    	echo "
 	    		 		<div>
 	    		 			<button onclick=\"manage(". $postid .", 0)\">Delete</button>
 	    		 			<button onclick=\"manage(". $postid .", 1)\">Publish</button>

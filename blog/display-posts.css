@@ -1,12 +1,14 @@
 body {
-    background: url("images/back3.jpeg");
+    background-color: #F2EEE2;
     background-repeat: no-repeat;
     margin: 0;
     font-family: 'Lato', sans-serif;
     box-sizing: border-box;
+    margin: 0;
+    height: 100%;
 }
 body h1, body h2{
-    color: #fff;
+    color: #000;
 }
 button:hover{
     cursor: pointer;
@@ -175,6 +177,13 @@ nav{
 .dropdown-menu a{
     color: #fff;
     font-size: 1.2em;
+}
+.nav-link:hover{
+    color: rgba(255,255,255,1);
+    font-weight: bold;
+}
+.nav-link{
+    font-size: 1.1em;
 }
 
 /*-----------------loader-----------------*/
