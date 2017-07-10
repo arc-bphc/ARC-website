@@ -68,11 +68,11 @@ echo "</a>
 		    Category
 		  </button>
 		  <div class=\"dropdown-menu\" aria-labelledby=\"dropdownMenuButton\">
-		  	<a class=\"dropdown-item\" href=\"#\">All</a>
-		    <a class=\"dropdown-item\" href=\"#\">General</a>
-		    <a class=\"dropdown-item\" href=\"#\">Software</a>
-		    <a class=\"dropdown-item\" href=\"#\">Arduino</a>
-		    <a class=\"dropdown-item\" href=\"#\">Miscellaneous</a>
+		  	<a class=\"dropdown-item\" href=\"#\" onclick=\"hideOthers(0)\">All</a>
+		    <a class=\"dropdown-item\" href=\"#\" onclick=\"hideOthers(1)\">General</a>
+		    <a class=\"dropdown-item\" href=\"#\" onclick=\"hideOthers(2)\">Software</a>
+		    <a class=\"dropdown-item\" href=\"#\" onclick=\"hideOthers(3)\">Arduino</a>
+		    <a class=\"dropdown-item\" href=\"#\" onclick=\"hideOthers(4)\">Miscellaneous</a>
 		  </div>
 		</div>
       </li>
@@ -117,9 +117,10 @@ if ($result->num_rows > 0) {
 	    	}
 	    	// echo "<b>" . $image . "</b>";
 	    	$postid = $row["id"];
+	    	$category = $row["category"];
 	    	  	
 	    	// print_r($row);
-	    	echo "<div class = \"card col-sm-3 card-inverse\">";
+	    	echo "<div class = \"card col-sm-3 card-inverse " . $category . "\">";
 
 			echo "<img class = \"card-img centerimages\" src=\"" . $image . "\" height = \"100%\" width = \"100%\">";
 

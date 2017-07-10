@@ -142,6 +142,28 @@ function searchBlog() {
     }
 }
 
+
+// category-wise distplay------------------------
+function hideOthers(category){
+	console.log(category);
+	var allPosts = document.getElementsByClassName("card");
+	var selectPosts = document.getElementsByClassName(category);
+	if(category != 0){		
+	    for (i = 0; i < allPosts.length; i++) {
+	    	allPosts[i].style.display = "none";
+	    }
+	    for (i = 0; i < selectPosts.length; i++) {
+	    	selectPosts[i].style.display = "";
+	    }
+	}
+	else{
+		for (i = 0; i < allPosts.length; i++) {
+	    	allPosts[i].style.display = "";
+	    }
+	}
+}
+
+
 // -------loader----------
 $('body').imagesLoaded().always( function( instance ) {
     $('body').addClass('loaded');
