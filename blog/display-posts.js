@@ -163,8 +163,26 @@ function hideOthers(category){
 	}
 }
 
+// convert date--------------------------------
+function formatDate(str,postid) {
+  var monthNames = [
+    "January", "February", "March",
+    "April", "May", "June", "July",
+    "August", "September", "October",
+    "November", "December"
+  ];
 
-// -------loader----------
+  var parts = str.split('-');
+  var day = parts[2];
+  var year = parts[0];
+  var monthIndex = parseInt(parts[1]);
+
+  displayDate =  day + ' ' + monthNames[monthIndex] + ' ' + year;
+  document.getElementById("date"+postid).innerHTML = displayDate;
+}
+
+
+// -------loader----------------------------
 $('body').imagesLoaded().always( function( instance ) {
     $('body').addClass('loaded');
-  })
+  });

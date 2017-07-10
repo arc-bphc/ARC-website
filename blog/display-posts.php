@@ -78,7 +78,7 @@ echo "</a>
       </li>
     </ul>
     <form class=\"form-inline my-2 my-lg-0\">
-      <input id=\"searchBar\" class=\"form-control mr-sm-2\" type=\"text\" onkeyup=\"searchBlog()\" placeholder=\"Search Title or Author\">
+      <input id=\"searchBar\" class=\"form-control mr-sm-2\" type=\"text\" onkeyup=\"searchBlog();\" placeholder=\"Search Title or Author\">
     </form>
   </div>
 </nav>";
@@ -118,6 +118,7 @@ if ($result->num_rows > 0) {
 	    	// echo "<b>" . $image . "</b>";
 	    	$postid = $row["id"];
 	    	$category = $row["category"];
+	    	$date = substr($row["uploadtime"],0,10);
 	    	  	
 	    	// print_r($row);
 	    	echo "<div class = \"card col-sm-3 card-inverse " . $category . "\">";
@@ -127,7 +128,7 @@ if ($result->num_rows > 0) {
 	    	echo "<a href=\"viewPost.php?postid=$postid\"><div class = \"card-img-overlay\"><h4 class = \"card-title\">" . $row["title"]. "</h4></div></a>";
 
 	        
-	        echo "<div class = \"card-footer\">" ."By:- <div class=\"author\">". $row["author"] . "</div><br>". $row["uploadtime"];
+	        echo "<div class = \"card-footer\">" ."By:- <div class=\"author\">". $row["author"] . "</div>". "<p id=\"date". $postid ."\"><script>formatDate(\"$date\",$postid);</script></p>";
 			if($_SESSION["login-status"] == 2){
 				echo " <div><button onclick=\"manage(". $postid .", 2)\">Withdraw From Publication</button></div> ";
 			}
