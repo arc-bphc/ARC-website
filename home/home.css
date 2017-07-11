@@ -2,20 +2,20 @@ body,html {
     height: 100%; 
     font: 400 15px Lato, sans-serif;
     line-height: 1.8;
-    color: #818181;
+    color: #fff;
     position: relative;
 }
 h2 {
     font-size: 24px;
     text-transform: uppercase;
-    color: #303030;
+    /*color: #303030;*/
     font-weight: 600;
     margin-bottom: 30px;
 }
 h4 {
     font-size: 19px;
     line-height: 1.375em;
-    color: #303030;
+    /*color: #303030;*/
     font-weight: 400;
     margin-bottom: 30px;
 }  
@@ -24,9 +24,10 @@ h4 {
     color: #fff;
     padding: 100px 25px;
     font-family: Montserrat, sans-serif;
+    margin-bottom: 0;
 }
 .container-fluid {
-    padding: 60px 50px;
+    padding: 0;
 }
 .bg-grey {
     background-color: #f6f6f6;
@@ -100,14 +101,7 @@ h4 {
     background-color: #f4511e;
     color: #fff;
 }
-.parallax{
-background-image: url("C:\\\\Users\\\\Hp\\\\Desktop\\\\img\\\\about.jpg");
-height: 100%;
-background-attachment: fixed;
-background-position: center;
-background-repeat: no-repeat;
-background-size: cover;
-}
+
 
 footer .glyphicon {
     font-size: 20px;
@@ -209,4 +203,45 @@ a.active{
 * element that contains the map. */
 #map {
   height: 400px;
+}
+.parallax1{
+    background: url('images/1.jpg') no-repeat center;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100%;
+    
+}
+.parallax2{
+    background: url('images/2.jpeg') no-repeat center;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100%;
+    
+}
+.parallax3{
+    background: url('images/4.jpeg') no-repeat center;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100%;
+    
+}
+.parallax4{
+    background-color: #fff;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100%;
+    
+}
+.content{
+    background-color: rgba(0,0,0,0.5);
+    padding: 60px 50px;
+    height: 100%;
+}
+.content2{
+    background-color: rgba(0,0,0,0.7);
+    padding: 60px 50px;
+    height: 100%;
+}
+#about, #vision{
+    height: 700px;
 }
