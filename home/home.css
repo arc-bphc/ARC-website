@@ -20,7 +20,7 @@ h4 {
     margin-bottom: 30px;
 }  
 .jumbotron {
-    background-color: #f4511e;
+    background-color: rgb(6,47,79);
     color: #fff;
     padding: 100px 25px;
     font-family: Montserrat, sans-serif;
@@ -198,12 +198,18 @@ a.active{
 #achievements{
     background-color: #888;
 }
-
+.nav-link:hover{
+    color: #fff;
+    font-weight: bold;
+}
 /* Always set the map height explicitly to define the size of the div
 * element that contains the map. */
 #map {
   height: 400px;
 }
+
+
+/*parallax----------------------------------------*/
 .parallax1{
     background: url('images/1.jpg') no-repeat center;
     background-size: cover;
@@ -226,7 +232,7 @@ a.active{
     
 }
 .parallax4{
-    background-color: #fff;
+    background-color: #B82601;
     background-size: cover;
     background-attachment: fixed;
     height: 100%;
@@ -238,6 +244,11 @@ a.active{
     height: 100%;
 }
 .content2{
+    background-color: rgba(0,0,0,0.7);
+    padding: 60px 50px;
+    height: 100%;
+}
+.content3{
     background-color: rgba(0,0,0,0.7);
     padding: 60px 50px;
     height: 100%;
