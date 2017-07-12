@@ -1,0 +1,64 @@
+  #section {
+    margin: 10px;
+    background-color: rgb(204, 204, 204);
+    padding: 25px;
+}
+  .modal .custom .modal-dialog {
+    
+    background-color: grey;
+    width:40%;
+    margin:0 auto;
+    padding: 0;
+    color: grey;
+    /*add what you want here*/
+}
+  .subinfo {
+    padding-left: 30px;
+  }
+
+  .title {
+    padding-bottom: 15px;
+  }
+  .rounded {
+    margin: 0;
+    padding: 0;
+  }
+  .rounded-circle {
+    width: 20%;
+    height:auto;
+    margin: 2%;
+  }
+  .img-fluid {
+    width : 100%;
+    height: auto;
+  }
+  .modal-backdrop {
+   background-color: grey;
+}
+  #propic {
+    width: 50%;
+  }
+  .card {
+    background-clip: padding-box;
+    border: 10px solid transparent;
+  }
+  #bg {
+    width: 90%;
+    margin: auto;
+    margin-top: 0px;
+  }
+  i {
+    margin:auto;
+    float: center;
+  }
+  .btn-icon {
+    padding: 5px;
+    font-size: 22px;
+    line-height: normal;
+    margin: 4px;
+    text-align: center;
+    align-content: middle;
+    -webkit-border-radius: 0px;
+       -moz-border-radius: 0px;
+            border-radius: 0px;
+    }

@@ -105,7 +105,6 @@ body {
     display: block;
     height: 120px;
     margin: -55px auto 0;
-    overflow: hidden;
     width: 120px;
 }
 .card .user img{
