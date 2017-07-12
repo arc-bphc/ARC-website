@@ -1,3 +1,107 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+            <!--source to include bootstrap-->
+    <script src="https://use.fontawesome.com/0162dabc99.js"></script>
+    <script>
+    $(document).ready(function(){                                                     //jquery script to pass ID of the profile whom you want to make admin
+      $("#mkadmin_button").click(function(){
+        var xmlhttp = new XMLHttpRequest();
+        var identity = document.getElementById("newadminid").value;
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                var myobj = JSON.parse(this.responseText);
+                //document.getElementById("name").innerHTML = myobj.name;
+                //document.getElementById("bio").innerHTML = $("#name").text();
+                //$("#name").val(myobj.name);
+                //$(e.currentTarget).getElementById('name').val(myobj.name);
+                alert("Text: " + myobj.message);
+            }
+        };
+        xmlhttp.open("GET", "makeadmin.php?q=" + identity, true);                     //call makeadmin with id number to provide administrator previllages to that member
+        xmlhttp.send();
+    })
+});
+    
+    function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+       auth2.signOut().then(function () {
+       console.log('User signed out.');
+      });
+    }
+    
+
+
+</script>
+<style type="text/css">
+  #section {
+    margin: 10px;
+    background-color: rgb(204, 204, 204);
+    padding: 25px;
+}
+  .modal .custom .modal-dialog {
+    
+    background-color: grey;
+    width:40%;
+    margin:0 auto;
+    padding: 0;
+    color: grey;
+    /*add what you want here*/
+}
+  .subinfo {
+    padding-left: 30px;
+  }
+
+  .title {
+    padding-bottom: 15px;
+  }
+  .rounded {
+    margin: 0;
+    padding: 0;
+  }
+  .rounded-circle {
+    width: 20%;
+    height:auto;
+    margin: 2%;
+  }
+  .img-fluid {
+    width : 100%;
+    height: auto;
+  }
+  .modal-backdrop {
+   background-color: grey;
+}
+  #propic {
+    width: 50%;
+  }
+  .card {
+    background-clip: padding-box;
+    border: 10px solid transparent;
+  }
+  #bg {
+    width: 80%;
+    margin: auto;
+  }
+  i {
+    margin:auto;
+    float: center;
+  }
+  .btn-icon {
+    padding: 5px;
+    font-size: 22px;
+    line-height: normal;
+    margin: 4px;
+    text-align: center;
+    align-content: middle;
+    -webkit-border-radius: 0px;
+       -moz-border-radius: 0px;
+            border-radius: 0px;
+    }
+
+</style>
+ </head>
 <?php
 session_start();
   require_once 'connect.php';
@@ -92,7 +196,24 @@ session_start();
           <div class="card col-md-3" style="width: 20%;" style="height: 40%;">
       <img class="card-img-top img-fluid" src="'.$img_scr.'" alt="'.$name.'">
         <div class="card-block">
-          <h4 class="card-title">'.$name.'</h4>
+          <a class="btn-icon btn-primary" href="#" aria-label="Skip to main navigation" >
+              <i class="fa fa-facebook-official" aria-hidden="true" ></i>
+          </a>
+          <a class="btn-icon btn-success" href="#" aria-label="Skip to main navigation" >
+              <i class="fa fa-github" aria-hidden="true"></i>
+          </a>
+          <a class="btn-icon btn-danger" href="#" aria-label="Skip to main navigation" >
+              <i class="fa fa-google-plus-circle" aria-hidden="true"></i>
+          </a>
+          <a class="btn-icon btn-primary" href="#" aria-label="Skip to main navigation" >
+              <i class="fa fa-linkedin-square" aria-hidden="true"></i>
+          </a>
+          <!--
+          <i class="fa fa-github fa-2x" style="background-color:white; padding=2px "></i>
+          <i class="fa fa-google-plus-circle fa-2x" style="background-color:red;"></i>
+          <i class="fa fa-facebook-f fa-2x" style="background-color:blue;"></i>
+          <i class="fa fa-linkedin fa-2x" style="background-color:blue;"></i>-->
+          <h4 class="card-title" style="margin-top:10px;">'.$name.'</h4>
           <p class="card-text">'.$email.'</p>
           <a href="#profilemodal'.$id.'" data-toggle="modal" class="btn btn-primary">View More</a>
         </div>
@@ -122,7 +243,19 @@ session_start();
       <div class="card col-md-3" style="width: 20%;" style="height: 40%;">
       <img class="card-img-top img-fluid" src="'.$img_scr.'" alt="'.$name.'">
         <div class="card-block">
-          <h4 class="card-title">'.$name.'</h4>
+          <a class="btn-icon btn-primary" href="#" aria-label="Skip to main navigation" >
+              <i class="fa fa-facebook-official" aria-hidden="true" ></i>
+          </a>
+          <a class="btn-icon btn-success" href="#" aria-label="Skip to main navigation" >
+              <i class="fa fa-github" aria-hidden="true"></i>
+          </a>
+          <a class="btn-icon btn-danger" href="#" aria-label="Skip to main navigation" >
+              <i class="fa fa-google-plus-circle" aria-hidden="true"></i>
+          </a>
+          <a class="btn-icon btn-primary" href="#" aria-label="Skip to main navigation" >
+              <i class="fa fa-linkedin-square" aria-hidden="true"></i>
+          </a>
+          <h4 class="card-title" style="margin-top:10px;">'.$name.'</h4>
           <p class="card-text">'.$email.'</p>
           <a href="#profilemodal'.$id.'" data-toggle="modal" class="btn btn-primary">View More</a>
         </div>
@@ -135,93 +268,6 @@ session_start();
 </div>
 </div>
 
-  <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">        <!--source to include bootstrap-->
-    <script>
-    $(document).ready(function(){                                                     //jquery script to pass ID of the profile whom you want to make admin
-      $("#mkadmin_button").click(function(){
-        var xmlhttp = new XMLHttpRequest();
-        var identity = document.getElementById("newadminid").value;
-        xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                var myobj = JSON.parse(this.responseText);
-                //document.getElementById("name").innerHTML = myobj.name;
-                //document.getElementById("bio").innerHTML = $("#name").text();
-                //$("#name").val(myobj.name);
-                //$(e.currentTarget).getElementById('name').val(myobj.name);
-                alert("Text: " + myobj.message);
-            }
-        };
-        xmlhttp.open("GET", "makeadmin.php?q=" + identity, true);                     //call makeadmin with id number to provide administrator previllages to that member
-        xmlhttp.send();
-    })
-});
-    
-    function signOut() {
-    var auth2 = gapi.auth2.getAuthInstance();
-       auth2.signOut().then(function () {
-       console.log('User signed out.');
-      });
-    }
-    
-
-
-</script>
-<style type="text/css">
-  #section {
-    margin: 10px;
-    background-color: rgb(204, 204, 204);
-    padding: 25px;
-}
-  .modal .custom .modal-dialog {
-    
-    background-color: grey;
-    width:40%;
-    margin:0 auto;
-    padding: 0;
-    color: grey;
-    /*add what you want here*/
-}
-  .subinfo {
-    padding-left: 30px;
-  }
-
-  .title {
-    padding-bottom: 15px;
-  }
-  .rounded {
-    margin: 0;
-    padding: 0;
-  }
-  .rounded-circle {
-    width: 20%;
-    height:auto;
-    margin: 2%;
-  }
-  .img-fluid {
-    width : 100%;
-    height: auto;
-  }
-  .modal-backdrop {
-   background-color: grey;
-}
-	#propic {
-		width: 50%;
-	}
-  .card {
-    background-clip: padding-box;
-    border: 10px solid transparent;
-  }
-  #bg {
-    width: 80%;
-    margin: auto;
-  }
-
-</style>
- </head>
  <body background-color="grey">
    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
