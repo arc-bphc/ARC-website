@@ -128,7 +128,7 @@ if ($result->num_rows > 0) {
 	    	echo "<a href=\"viewPost.php?postid=$postid\"><div class = \"card-img-overlay\"><h4 class = \"card-title\">" . $row["title"]. "</h4></div></a>";
 
 	        
-	        echo "<div class = \"card-footer\">" ."By:- <div class=\"author\">". $row["author"] . "</div>". "<p id=\"date". $postid ."\"><script>formatDate(\"$date\",$postid);</script></p>";
+	        echo "<div class = \"card-footer\"><div class=\"author\">". $row["author"] . "</div>". "<p id=\"date". $postid ."\"><script>formatDate(\"$date\",$postid);</script></p>";
 
 			if($_SESSION["login-status"] == 2){
 				echo " <div><button onclick=\"manage(". $postid .", 2)\">Withdraw From Publication</button></div> ";
