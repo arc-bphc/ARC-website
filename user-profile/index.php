@@ -4,6 +4,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
             <!--source to include bootstrap-->
+
+    <link href='css/bootstrap.css' rel='stylesheet' />
+    <link href='css/rotating-card.css' rel='stylesheet' />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+
     <script src="https://use.fontawesome.com/0162dabc99.js"></script>
     <script>
     $(document).ready(function(){                                                     //jquery script to pass ID of the profile whom you want to make admin
@@ -83,6 +89,7 @@
   #bg {
     width: 80%;
     margin: auto;
+    margin-top: 0px;
   }
   i {
     margin:auto;
@@ -139,8 +146,10 @@ session_start();
   //$i=1;
   ?>
   <div id=bg>
-  <p style="margin: 50px; " ><h3>Members</h3></p>
-  <div class=row>
+  <h2 class="title">
+            Members
+  </h2>
+  <div class=row>  
   <?php
   while ($result = mysqli_fetch_array($getList)) {                       //loop through all the users
     $id = $result['id'];
@@ -193,31 +202,71 @@ session_start();
                 </div>
               </div>
 
-          <div class="card col-md-3" style="width: 20%;" style="height: 40%;">
-      <img class="card-img-top img-fluid" src="'.$img_scr.'" alt="'.$name.'">
-        <div class="card-block">
-          <a class="btn-icon btn-primary" href="#" aria-label="Skip to main navigation" >
-              <i class="fa fa-facebook-official" aria-hidden="true" ></i>
-          </a>
-          <a class="btn-icon btn-success" href="#" aria-label="Skip to main navigation" >
-              <i class="fa fa-github" aria-hidden="true"></i>
-          </a>
-          <a class="btn-icon btn-danger" href="#" aria-label="Skip to main navigation" >
-              <i class="fa fa-google-plus-circle" aria-hidden="true"></i>
-          </a>
-          <a class="btn-icon btn-primary" href="#" aria-label="Skip to main navigation" >
-              <i class="fa fa-linkedin-square" aria-hidden="true"></i>
-          </a>
-          <!--
-          <i class="fa fa-github fa-2x" style="background-color:white; padding=2px "></i>
-          <i class="fa fa-google-plus-circle fa-2x" style="background-color:red;"></i>
-          <i class="fa fa-facebook-f fa-2x" style="background-color:blue;"></i>
-          <i class="fa fa-linkedin fa-2x" style="background-color:blue;"></i>-->
-          <h4 class="card-title" style="margin-top:10px;">'.$name.'</h4>
-          <p class="card-text">'.$email.'</p>
-          <a href="#profilemodal'.$id.'" data-toggle="modal" class="btn btn-primary">View More</a>
+            <div class="col-md-4 col-sm-6">
+             <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="cover">
+                            <img src="'.$img_scr.'"/>
+                        </div>
+                        <div class="user">
+                            <img class="img-circle" src="'.$img_scr.'"/>
+                        </div>
+                        <div class="content">
+                            <div class="main">
+                                <h3 class="name">'.$name.'</h3>
+                                <p class="profession">CEO</p>
+                                <p class="text-center">'.$bio.'</p>
+                            </div>
+                            <div class="footer">
+                                <i class="fa fa-mail-forward"></i> Auto Rotation
+                            </div>
+                        </div>
+                    </div> <!-- end front panel -->
+                    <div class="back">
+                        <div class="header">
+                            <h5 class="motto">"To be or not to be, this is my awesome motto!"</h5>
+                        </div>
+                        <div class="content">
+                            <div class="main">
+                                <h4 class="text-center">Job Description</h4>
+                                <p class="text-center">Web design, Adobe Photoshop, HTML5, CSS3, Corel and many others...</p>
+
+                                <div class="stats-container">
+                                    <div class="stats">
+                                        <h4>235</h4>
+                                        <p>
+                                            Followers
+                                        </p>
+                                    </div>
+                                    <div class="stats">
+                                        <h4>114</h4>
+                                        <p>
+                                            Following
+                                        </p>
+                                    </div>
+                                    <div class="stats">
+                                        <h4>35</h4>
+                                        <p>
+                                            Projects
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="footer">
+                            <div class="social-links text-center">
+                                <a href="#" class="facebook"><i class="fa fa-facebook fa-fw"></i></a>
+                                <a href="#" class="google"><i class="fa fa-google-plus fa-fw"></i></a>
+                                <a href="'.$github.'" class="github"><i class="fa fa-github fa-fw"></i></a>
+                                <a href="#" class="linkedin"><i class="fa fa-linkedin fa-fw"></i></a>
+                            </div>
+                        </div>
+                    </div> <!-- end back panel -->
+                </div> <!-- end card -->
+            </div> <!-- end card-container -->
         </div>
-      </div>
           ';
           //$i++;
 	     }
@@ -225,7 +274,7 @@ session_start();
    }
 ?>
 </div>
-<h3 style="margin: 50px;">Admins</h3>
+<h2 class="title">Admins</h2>
 <div class=row>
 <?php
   $getList = mysqli_query($GLOBALS['con'],"SELECT * FROM users WHERE `isadmin`= 1");         // fetch all user details
@@ -233,12 +282,14 @@ session_start();
    while ($result = mysqli_fetch_array($getList)) {                       //loop through all the users
     $id = $result['id'];
     $name = $result['name'];
-    $img_scr= $result['picture'];
     $email = $result['email'];
+    $github = $result['github'];
+    $img_scr= $result['picture'];
+    $bio = $result['bio'];
     echo '
     <!--<a data-toggle="modal" href="#profilemodal'.$id.'">
       <img class="rounded-circle" src="'.$img_scr.'" alt="error">'.$name.'</img>
-      </a>    <!--Image to click , which will trigger respective profilemodal-->
+      </a>    <!--Image to click , which will trigger respective profilemodal
 
       <div class="card col-md-3" style="width: 20%;" style="height: 40%;">
       <img class="card-img-top img-fluid" src="'.$img_scr.'" alt="'.$name.'">
@@ -246,7 +297,7 @@ session_start();
           <a class="btn-icon btn-primary" href="#" aria-label="Skip to main navigation" >
               <i class="fa fa-facebook-official" aria-hidden="true" ></i>
           </a>
-          <a class="btn-icon btn-success" href="#" aria-label="Skip to main navigation" >
+          <a class="btn-icon btn-success" href='.$github.' aria-label="Skip to main navigation" >
               <i class="fa fa-github" aria-hidden="true"></i>
           </a>
           <a class="btn-icon btn-danger" href="#" aria-label="Skip to main navigation" >
@@ -259,8 +310,73 @@ session_start();
           <p class="card-text">'.$email.'</p>
           <a href="#profilemodal'.$id.'" data-toggle="modal" class="btn btn-primary">View More</a>
         </div>
-      </div>
+      </div>-->
 
+      <div class="col-md-4 col-sm-6">
+             <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="cover">
+                            <img src="'.$img_scr.'"/>
+                        </div>
+                        <div class="user">
+                            <img class="img-circle" src="'.$img_scr.'"/>
+                        </div>
+                        <div class="content">
+                            <div class="main">
+                                <h3 class="name">'.$name.'</h3>
+                                <p class="profession">CEO</p>
+                                <p class="text-center">'.$bio.'</p>
+                            </div>
+                            <div class="footer">
+                                <i class="fa fa-mail-forward"></i> Auto Rotation
+                            </div>
+                        </div>
+                    </div> <!-- end front panel -->
+                    <div class="back">
+                        <div class="header">
+                            <h5 class="motto">"To be or not to be, this is my awesome motto!"</h5>
+                        </div>
+                        <div class="content">
+                            <div class="main">
+                                <h4 class="text-center">Job Description</h4>
+                                <p class="text-center">Web design, Adobe Photoshop, HTML5, CSS3, Corel and many others...</p>
+
+                                <div class="stats-container">
+                                    <div class="stats">
+                                        <h4>235</h4>
+                                        <p>
+                                            Followers
+                                        </p>
+                                    </div>
+                                    <div class="stats">
+                                        <h4>114</h4>
+                                        <p>
+                                            Following
+                                        </p>
+                                    </div>
+                                    <div class="stats">
+                                        <h4>35</h4>
+                                        <p>
+                                            Projects
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="footer">
+                            <div class="social-links text-center">
+                                <a href="#" class="facebook"><i class="fa fa-facebook fa-fw"></i></a>
+                                <a href="#" class="google"><i class="fa fa-google-plus fa-fw"></i></a>
+                                <a href="'.$github.'" class="github"><i class="fa fa-github fa-fw"></i></a>
+                                <a href="#" class="linkedin"><i class="fa fa-linkedin fa-fw"></i></a>
+                            </div>
+                        </div>
+                    </div> <!-- end back panel -->
+                </div> <!-- end card -->
+            </div> <!-- end card-container -->
+        </div>
       ';
       //$i++;
     }
