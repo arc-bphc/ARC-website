@@ -149,7 +149,7 @@ body {
     text-align: center;
 }
 .card .footer .social-links{
-    font-size: 18px;
+    font-size: 25px;
 }
 .card .footer .social-links a{
     margin: 0 7px;
@@ -316,4 +316,15 @@ body {
         z-index: 5;
         visibility: visible;
     }
+}
+
+
+.facebook{
+    color: #3b5998;
+}
+.github{
+    color: #333;
+}
+.linkedin{
+    color: #0077B5;
 }

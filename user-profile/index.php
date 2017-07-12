@@ -65,7 +65,7 @@ echo '<h2 class="title">Admins</h2>
     $bio = $result['bio'];
    echo '
 
-      <div class="col-md-3 col-sm-6">
+      <div class="col-lg-3 col-sm-6">
              <div class="card-container">
                 <div class="card">
                     <div class="front">
@@ -121,7 +121,6 @@ echo '<h2 class="title">Admins</h2>
                         <div class="footer">
                             <div class="social-links text-center">
                                 <a href="#" class="facebook"><i class="fa fa-facebook fa-fw"></i></a>
-                                <a href="#" class="google"><i class="fa fa-google-plus fa-fw"></i></a>
                                 <a href="'.$github.'" class="github"><i class="fa fa-github fa-fw"></i></a>
                                 <a href="#" class="linkedin"><i class="fa fa-linkedin fa-fw"></i></a>
                             </div>
@@ -148,7 +147,7 @@ echo '<h2 class="title">Admins</h2>
     $isadmin = 'disabled="disabled"';
     if(!$result['isadmin'] && $user_data['isadmin']){ $isadmin="";}                       //unique modal for every user which gets triggered when you click their picture
    echo '
-            <div class="col-md-3 col-sm-6">
+            <div class="col-lg-3 col-sm-6">
              <div class="card-container">
                 <div class="card">
                     <div class="front">
@@ -204,7 +203,6 @@ echo '<h2 class="title">Admins</h2>
                         <div class="footer">
                             <div class="social-links text-center">
                                 <a href="#" class="facebook"><i class="fa fa-facebook fa-fw"></i></a>
-                                <a href="#" class="google"><i class="fa fa-google-plus fa-fw"></i></a>
                                 <a href="'.$github.'" class="github"><i class="fa fa-github fa-fw"></i></a>
                                 <a href="#" class="linkedin"><i class="fa fa-linkedin fa-fw"></i></a>
                             </div>
