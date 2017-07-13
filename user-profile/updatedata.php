@@ -61,10 +61,14 @@ if ( isset( $_POST[ 'email' ] ) || isset( $_POST[ 'github' ] ) || isset( $_POST[
 				print_r($errors);
 		 }
 	}
-	//`picture`='{$file_name}',
+	if($file_name==""){
+	$str2="UPDATE `users` SET `email`='{$email}',`github`='{$github}',`bio`='{$bio}' WHERE `id`='$session_id'";
+	$q = mysqli_query( $GLOBALS[ 'con' ], $str2 );                          //updating database with new info
+	}
+	else {
 	$str2="UPDATE `users` SET `picture`='{$file_name}',`email`='{$email}',`github`='{$github}',`bio`='{$bio}' WHERE `id`='$session_id'";
 	$q = mysqli_query( $GLOBALS[ 'con' ], $str2 );                          //updating database with new info
-
+	}
 	if ( $q ) {
 		echo "user inserted";
 		sleep(2);

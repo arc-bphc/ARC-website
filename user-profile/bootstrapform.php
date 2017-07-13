@@ -148,8 +148,8 @@ echo "<nav class=\"navbar navbar-toggleable-md navbar-inverse bg-inverse\">
   </div>
 </nav>";
 ?>
-<div class="card text-center offset-md-1 col-md-10">                                               <!--bootstrap card so that things look nice-->
-      <div class="card-header">Edit Profile</div>
+<div class="card text-center offset-md-3 col-md-6" style="margin-top: 50px; background-color: white">                   <!--bootstrap card so that things look nice-->
+      <div class="card-title" style=" margin-top: 30px;"><h2>Edit Profile</h2></div>
       <div class="card-block">
 
 	<form action="updatedata.php" method="POST" enctype="multipart/form-data">
@@ -165,7 +165,7 @@ echo "<nav class=\"navbar navbar-toggleable-md navbar-inverse bg-inverse\">
         </div>
           </label>
     </div>
-
+  <br><br>
   <div class="form-group row">
     <label class="col-2 col-form-label offset-md-1" for="email">Email:</label>
     <div class="col-7">
