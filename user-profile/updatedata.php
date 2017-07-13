@@ -17,7 +17,6 @@ if ( $GLOBALS[ 'con' ] ) {
 	$email = $user_data['email']; 
 	$github = $user_data['github'];
 	$bio = $user_data['bio'];
-	$file_name = $user_data['picture'];
 
 
 if ( isset( $_POST[ 'email' ] ) || isset( $_POST[ 'github' ] ) || isset( $_POST[ 'bio' ] ) || isset($_FILES['image'])  ) {
