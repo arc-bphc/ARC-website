@@ -102,96 +102,98 @@ $img_scr= $user_data['picture'];                                                
   </nav>";
   ?>
 
-<form action="updatedata.php" method="POST" enctype="multipart/form-data">
-  <div class="row" style="margin-top: 100px;">
-    <div class="card-container col-md-3 col-sm-6 col-md-offset-3"">
-      <div class="card">
-        <div class="front">
-          <div class="cover">
-            <div class="form-inline justify-content-center">
-              <label class="form-label" for="image">
-                <div class="container">
-                  <input type="file" name="image" class="form-control" id="image" style="display:none;">
-                  <img src="<?php echo htmlspecialchars($img_scr);?>" class="image" alt='error'>             <!--added tooltip which shows when we hover over the image-->
-                  <div class="middle">
-                    <div class="text">click to change DP</div>
+  <form action="updatedata.php" method="POST" enctype="multipart/form-data">
+    <div class="row" style="margin-top: 75px;">
+      <div class="card-container col-md-3 col-sm-6 col-md-offset-3" style="margin-left: 25% " ">
+        <div class="card">
+          <div class="front" style="height: 550px">
+            <div class="cover">
+              <div class="form-inline justify-content-center">
+                <label class="form-label" for="image">
+                  <div class="container">
+                    <input type="file" name="image" class="form-control" id="image" style="display:none;">
+                    <img src="<?php echo htmlspecialchars($img_scr);?>" class="image" alt='error'>             <!--added tooltip which shows when we hover over the image-->
+                    <div class="middle">
+                      <div class="text">click to change DP</div>
+                    </div>
+                  </div>
+                </label>
+              </div>
+            </div>
+            <div class="content">
+              <div class="main">
+                <h3 class="name"><?php echo htmlspecialchars($user_data["name"]);?></h3>
+                <p class="profession">CEO</p>
+                <h4 class="text-center">Bio</h4>
+                <input type="text" name="bio" class="form-control text-center" id="bio" style="height: 130px;" placeholder="<?php echo htmlspecialchars($user_data["bio"]);?>">
+              </div>
+            </div>
+          </div> <!-- end front panel -->
+        </div>
+      </div>
+      <div class="card-container col-md-3 col-sm-6">
+        <div class="card">
+          <div class="front" style="height: 550px">
+            <div class="header">
+              <input type="email" name="email" class="form-control text-center" id="email" placeholder="<?php echo htmlspecialchars($user_data["email"]);?>">
+              
+            </div>
+            <div class="content">
+              <div class="main">
+                <h5 class="motto">"To be or not to be, this is my awesome motto!"</h5>
+
+                <div class="stats-container">
+                  <div class="stats">
+                    <h4>235</h4>
+                    <p>
+                      Followers
+                    </p>
+                  </div>
+                  <div class="stats">
+                    <h4>114</h4>
+                    <p>
+                      Following
+                    </p>
+                  </div>
+                  <div class="stats">
+                    <h4>35</h4>
+                    <p>
+                      Projects
+                    </p>
                   </div>
                 </div>
-              </label>
-            </div>
-          </div>
-          <div class="content">
-            <div class="main">
-              <h3 class="name"><?php echo htmlspecialchars($user_data["name"]);?></h3>
-              <p class="profession">CEO</p>
-              <input type="email" name="email" class="form-control text-center" id="email" placeholder="<?php echo htmlspecialchars($user_data["email"]);?>">
-            </div>
-          </div>
-        </div> <!-- end front panel -->
-      </div>
-    </div>
-    <div class="card-container col-md-3 col-sm-6">
-      <div class="card">
-        <div class="front" style="height: 500px">
-          <div class="header">
-            <h5 class="motto">"To be or not to be, this is my awesome motto!"</h5>
-          </div>
-          <div class="content">
-            <div class="main">
-              <h4 class="text-center">Bio</h4>
-              <input type="text" name="bio" class="form-control text-center" id="bio" placeholder="<?php echo htmlspecialchars($user_data["bio"]);?>">
 
-              <div class="stats-container">
-                <div class="stats">
-                  <h4>235</h4>
-                  <p>
-                    Followers
-                  </p>
-                </div>
-                <div class="stats">
-                  <h4>114</h4>
-                  <p>
-                    Following
-                  </p>
-                </div>
-                <div class="stats">
-                  <h4>35</h4>
-                  <p>
-                    Projects
-                  </p>
-                </div>
               </div>
-
             </div>
-          </div>
-          <div class="footer">
-            <div class="social-links text-center">
-              <div class="form-group row github" style="margin: auto">
-                <label for="github"><i class="fa fa-github fa-fw" style="color: black; margin-left: 10px;"></i></label>
-                <div>
-                  <input type="url" name="github" class="form-control" id="github" placeholder="<?php echo htmlspecialchars($user_data["github"]);?>">
+            <div class="footer">
+              <div class="social-links text-center">
+                <div class="form-group row github" style="margin: auto">
+                  <label for="github"><i class="fa fa-github fa-fw" style="color: black; margin-left: 10px;"></i></label>
+                  <div>
+                    <input type="url" name="github" class="form-control" id="github" placeholder="<?php echo htmlspecialchars($user_data["github"]);?>">
+                  </div>
                 </div>
-              </div>
 
-              <div class="form-group row facebook" style="margin: auto">
-                <label for="github"><i class="fa fa-facebook fa-fw" style="color: blue; margin-left: 10px;"></i></label>
-                <div>
-                  <input type="url" name="github" class="form-control" id="github" placeholder="<?php echo htmlspecialchars($user_data["facebook"]);?>">
+                <div class="form-group row facebook" style="margin: auto">
+                  <label for="github"><i class="fa fa-facebook fa-fw" style="color: blue; margin-left: 10px;"></i></label>
+                  <div>
+                    <input type="url" name="github" class="form-control" id="github" placeholder="<?php echo htmlspecialchars($user_data["facebook"]);?>">
+                  </div>
                 </div>
-              </div>
-              <div class="form-group row linkedin" style="margin: auto">
-                <label for="github"><i class="fa fa-linkedin fa-fw" style="color: blue; margin-left: 10px;"></i></label>
-                <div>
-                  <input type="url" name="github" class="form-control" id="github" placeholder="<?php echo htmlspecialchars($user_data["linkedin"]);?>">
+                <div class="form-group row linkedin" style="margin: auto">
+                  <label for="github"><i class="fa fa-linkedin fa-fw" style="color: blue; margin-left: 10px;"></i></label>
+                  <div>
+                    <input type="url" name="github" class="form-control" id="github" placeholder="<?php echo htmlspecialchars($user_data["linkedin"]);?>">
+                  </div>
                 </div>
-              </div>
-              <div class="form-group row linkedin" style="margin: auto">
-                <label for="github"><i class="fa fa-google fa-fw" style="color: red; margin-left: 10px;"></i></label>
-                <div>
-                  <input type="url" name="github" class="form-control" id="github" placeholder="<?php echo htmlspecialchars($user_data["google"]);?>">
+                <div class="form-group row linkedin" style="margin: auto">
+                  <label for="github"><i class="fa fa-google fa-fw" style="color: red; margin-left: 10px;"></i></label>
+                  <div>
+                    <input type="url" name="github" class="form-control" id="github" placeholder="<?php echo htmlspecialchars($user_data["google"]);?>">
+                  </div>
                 </div>
-              </div>
-              <button type="submit" class="btn btn-success">Save</button>
+                <br>
+                <button type="submit" class="btn btn-success">Save</button>
             <!--<a href="#" class="facebook"><i class="fa fa-facebook fa-fw"></i></a>
             <a href="#" class="google"><i class="fa fa-google-plus fa-fw"></i></a>
             <a href="'.$github.'" class="github"><i class="fa fa-github fa-fw"></i></a>
