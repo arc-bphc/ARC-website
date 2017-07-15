@@ -108,9 +108,9 @@ $img_scr= $user_data['picture'];                                                
   <form action="updatedata.php" method="POST" enctype="multipart/form-data">
     <div class="row" style="margin-top: 75px;">
       <div class="col-md-3"></div>
-      <div class="card-container col-md-3 col-sm-6">
-        <div class="card">
-          <div class="front" style="height: 550px">
+      <div class="card-container col-md-3 col-sm-6 col-xs-12">
+        <div class="card" style="margin-top: 20px;">
+          <div class="front" >
             <div class="cover">
               <div class="form-inline justify-content-center">
                 <label class="form-label" for="image">
@@ -129,15 +129,15 @@ $img_scr= $user_data['picture'];                                                
                 <h3 class="name"><?php echo htmlspecialchars($user_data["name"]);?></h3>
                 <p class="profession">CEO</p>
                 <h4 class="text-center">Bio</h4>
-                <input type="text" name="bio" class="form-control text-center" id="bio" style="height: 130px;" placeholder="<?php echo htmlspecialchars($user_data["bio"]);?>">
+                <input type="text" name="bio" class="form-control text-center" id="bio" placeholder="<?php echo htmlspecialchars($user_data["bio"]);?>">
               </div>
             </div>
           </div> <!-- end front panel -->
         </div>
       </div>
-      <div class="card-container col-md-3 col-sm-6">
-        <div class="card">
-          <div class="front" style="height: 550px">
+      <div class="card-container col-md-3 col-sm-6 col-xs-12">
+        <div class="card" style="margin-top: 20px;">
+          <div class="front">
             <div class="header">
               <input type="email" name="email" class="form-control text-center" id="email" placeholder="<?php echo htmlspecialchars($user_data["email"]);?>">
               
@@ -172,28 +172,28 @@ $img_scr= $user_data['picture'];                                                
             <div class="footer">
               <div class="social-links text-center">
                 <div class="form-group row github">
-                  <label class="v-center" for="github"><i class="fa fa-github fa-fw" style="color: black; margin-left: 10px;"></i></label>
+                  <label class="v-center" for="github"><i class="fa fa-github fa-fw" style="color: black;"></i></label>
                   <div>
                     <input type="url" name="github" class="form-control" id="github" placeholder="<?php echo htmlspecialchars($user_data["github"]);?>">
                   </div>
                 </div>
 
                 <div class="form-group row facebook">
-                  <label class="v-center" for="github"><i class="fa fa-facebook fa-fw" style="color: blue; margin-left: 10px;"></i></label>
+                  <label class="v-center" for="facebook"><i class="fa fa-facebook fa-fw" style="color: blue; "></i></label>
                   <div>
-                    <input type="url" name="github" class="form-control" id="github" placeholder="<?php echo htmlspecialchars($user_data["facebook"]);?>">
+                    <input type="url" name="facebook" class="form-control" id="facebook" placeholder="<?php echo htmlspecialchars($user_data["facebook"]);?>">
                   </div>
                 </div>
                 <div class="form-group row linkedin">
-                  <label class="v-center" for="github"><i class="fa fa-linkedin fa-fw" style="color: blue; margin-left: 10px;"></i></label>
+                  <label class="v-center" for="linkedin"><i class="fa fa-linkedin fa-fw" style="color: blue; "></i></label>
                   <div>
-                    <input type="url" name="github" class="form-control" id="github" placeholder="<?php echo htmlspecialchars($user_data["linkedin"]);?>">
+                    <input type="url" name="linkedin" class="form-control" id="linkedin" placeholder="<?php echo htmlspecialchars($user_data["linkedin"]);?>">
                   </div>
                 </div>
                 <div class="form-group row google">
-                  <label class="v-center" for="github"><i class="fa fa-google fa-fw" style="color: red; margin-left: 10px;"></i></label>
+                  <label class="v-center" for="google"><i class="fa fa-google fa-fw" style="color: red; "></i></label>
                   <div>
-                    <input type="url" name="github" class="form-control" id="github" placeholder="<?php echo htmlspecialchars($user_data["google"]);?>">
+                    <input type="url" name="google" class="form-control" id="google" placeholder="<?php echo htmlspecialchars($user_data["google"]);?>">
                   </div>
                 </div>
                 <br>
@@ -207,6 +207,7 @@ $img_scr= $user_data['picture'];                                                
       </div> <!-- end back panel -->
     </div> <!-- end card -->
   </div> <!-- end card-container -->
+  <div class="col-md-3"></div>
 </div>
 </form>
 
