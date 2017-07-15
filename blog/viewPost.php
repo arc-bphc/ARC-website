@@ -52,6 +52,21 @@
 		    -o-border-image: url(images/border.png) 50 round; /* Opera 11-12.1 */
 		    border-image: url(images/border.png) 50 round;
 		}
+		.back-icon{
+			color: #000;
+			position: absolute;
+			left: 20%;
+			font-size: 30px;
+			z-index: 100;
+		}
+		.back-icon a{
+			text-decoration: none;
+			color: #000;
+		}
+		.back-icon a:hover{
+			color: #777;
+		}
+
 
 	</style>
 	<script type="text/javascript">
@@ -74,6 +89,7 @@
 	</script>
 </head>
 <body>
+<div class="back-icon"><a href="display-posts.php"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i></a></div>
 <?php
 session_start();
 
@@ -102,8 +118,8 @@ $date = substr($row['uploadtime'],0,10);
 
 echo "<div class=\"row page\"><div class=\"col-md-2 side\"></div><div class=\"col-md-8 main\">
 		<div class=\"row\"><h1 id=\"title\">$title<h1></div>
-		<div class=\"row\"><div class=\"col-md-9\"></div>
-							<div class=\"col-md-3 author-date\">$author<br><p id=\"date\"><script>formatDate(\"$date\")</script></div></div>
+		<div class=\"row\"><div class=\"col-md-9 col-sm-6\"></div>
+							<div class=\"col-md-3 col-sm-6 author-date\">$author<br><p id=\"date\"><script>formatDate(\"$date\")</script></div></div>
 		<div id=\"content\" class=\"row\">" . $blogPost . "</div>";
 
 ?>
