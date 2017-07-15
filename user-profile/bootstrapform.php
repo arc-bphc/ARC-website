@@ -81,6 +81,16 @@ $img_scr= $user_data['picture'];                                                
       padding-left: 15%;
       margin-bottom: 10px;
     }
+    .card{
+      height: 100%;
+    }
+    @media only screen and (max-width: 768px) {
+    .card-container{
+        width: 80%;
+        margin: auto;
+        margin-bottom: 40px;
+    }
+}
 
   </style>
 </head>
@@ -107,8 +117,8 @@ $img_scr= $user_data['picture'];                                                
 
   <form action="updatedata.php" method="POST" enctype="multipart/form-data">
     <div class="row" style="margin-top: 75px;">
-      <div class="col-md-3"></div>
-      <div class="card-container col-md-3 col-sm-6 col-xs-12">
+      <div class="col-lg-3"></div>
+      <div class="card-container col-lg-3 col-md-6">
         <div class="card" style="margin-top: 20px;">
           <div class="front" >
             <div class="cover">
@@ -135,7 +145,7 @@ $img_scr= $user_data['picture'];                                                
           </div> <!-- end front panel -->
         </div>
       </div>
-      <div class="card-container col-md-3 col-sm-6 col-xs-12">
+      <div class="card-container col-lg-3 col-md-6">
         <div class="card" style="margin-top: 20px;">
           <div class="front">
             <div class="header">
@@ -207,7 +217,7 @@ $img_scr= $user_data['picture'];                                                
       </div> <!-- end back panel -->
     </div> <!-- end card -->
   </div> <!-- end card-container -->
-  <div class="col-md-3"></div>
+  <div class="col-lg-3"></div>
 </div>
 </form>
 
