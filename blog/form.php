@@ -76,7 +76,7 @@ echo "<nav class=\"navbar navbar-toggleable-md navbar-inverse bg-inverse\">
   <button class=\"navbar-toggler navbar-toggler-right\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarTogglerDemo02\" aria-controls=\"navbarTogglerDemo02\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
     <span class=\"navbar-toggler-icon\"></span>
   </button>
-  <a class=\"navbar-brand\" href=\"../user-profile/bootstrapform.php\">";
+  <a class=\"navbar-brand\" href=\"../user-profile/editProfile.php\">";
 if(!isset($_SESSION["login-status"]) || empty($_SESSION["login-status"])) {
    $_SESSION["login-status"] = 0;
     echo "<img class=\"profile-pic rounded\" src=\"images/default-user.png\">Guest";
@@ -90,7 +90,7 @@ echo "</a>
     <ul class=\"navbar-nav mr-auto mt-2 mt-md-0\">
       <li class=\"nav-item active\">
         <a class=\"nav-link\" href=\"#\">Home <span class=\"sr-only\">(current)</span></a></li>
-        <li class=\"nav-item\"><a class=\"nav-link\" href=\"display-posts.php\">Reader</a></li>";
+        <li class=\"nav-item\"><a class=\"nav-link\" href=\"index.php\">Reader</a></li>";
 
 
 if($_SESSION["login-status"] == 2){

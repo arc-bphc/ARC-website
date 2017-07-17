@@ -79,7 +79,7 @@
         var test = this.responseText;
         test = test.replace(/\"/g, "");
         if(test == "success"){
-          window.location.href = "./display-posts.php";
+          window.location.href = "./index.php";
         }  
         document.getElementById("error").innerHTML = test;
           
@@ -220,7 +220,7 @@ function fbsignin(){
         var test = this.responseText;
         test = test.replace(/\"/g, "");
         if(test == "success"){
-          window.location.href = "./display-posts.php";
+          window.location.href = "./index.php";
         }  
         document.getElementById("error").innerHTML = test;
           

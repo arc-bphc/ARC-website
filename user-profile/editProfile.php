@@ -106,7 +106,7 @@ $img_scr= $user_data['picture'];                                                
       <li class=\"nav-item active\">
         <a class=\"nav-link\" href=\"#\">Home <span class=\"sr-only\">(current)</span></a>
         <li class=\"nav-item\"><a class=\"nav-link\" href=\"../blog/form.php\">Write Post</a></li>
-        <li class=\"nav-item\"><a class=\"nav-link\" href=\"../blog/display-posts.php\">Reader</a></li>
+        <li class=\"nav-item\"><a class=\"nav-link\" href=\"../blog/index.php\">Reader</a></li>
         <li class=\"nav-item\">
           <a class=\"nav-link\" href=\"../blog/sign.php\">Logout</a>
         </li>

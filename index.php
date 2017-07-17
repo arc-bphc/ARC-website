@@ -1,3 +1,3 @@
 <?php
-	header("Location: blog/display-posts.php");
+	header("Location: blog/index.php");
 ?>

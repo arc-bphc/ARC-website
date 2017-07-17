@@ -39,6 +39,6 @@ if (mysqli_query($conn, $sql)) {
 
 mysqli_close($conn);
 
-echo "<div><a href = \"./display-posts.php\">See posts</a>";
+echo "<div><a href = \"./index.php\">See posts</a>";
 
 ?>

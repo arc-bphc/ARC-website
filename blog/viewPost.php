@@ -89,7 +89,7 @@
 	</script>
 </head>
 <body>
-<div class="back-icon"><a href="display-posts.php"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i></a></div>
+<div class="back-icon"><a href="index.php"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i></a></div>
 <?php
 session_start();
 
