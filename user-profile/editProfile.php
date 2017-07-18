@@ -78,7 +78,6 @@ $img_scr= $user_data['picture'];                                                
       padding-top: 10px;
     }
     .form-group{
-      padding-left: 15%;
       margin-bottom: 10px;
     }
     .card{
@@ -89,6 +88,12 @@ $img_scr= $user_data['picture'];                                                
         width: 80%;
         margin: auto;
         margin-bottom: 40px;
+    }
+    .form-group {
+      padding: 10px;
+    }
+    .form-control {
+      margin: auto;
     }
 }
 
@@ -115,7 +120,7 @@ $img_scr= $user_data['picture'];                                                
   </nav>";
   ?>
 
-  <form action="updatedata.php" method="POST" enctype="multipart/form-data">
+  <form action="updatedata.php" class="form-horizontal" method="POST" enctype="multipart/form-data">
     <div class="row" style="margin-top: 75px;">
       <div class="col-lg-3"></div>
       <div class="card-container col-lg-3 col-md-6">
@@ -182,27 +187,27 @@ $img_scr= $user_data['picture'];                                                
             <div class="footer">
               <div class="social-links text-center">
                 <div class="form-group row github">
-                  <label class="v-center" for="github"><i class="fa fa-github fa-fw" style="color: black;"></i></label>
-                  <div>
+                  <label class="control-label col-sm-1 col-xs-1" for="github"><i class="fa fa-github fa-fw" style="color: black; margin-top: 8px; margin-left: 10px"></i></label>
+                  <div class="col-sm-9 col-xs-9">
                     <input type="url" name="github" class="form-control" id="github" placeholder="<?php echo htmlspecialchars($user_data["github"]);?>">
                   </div>
                 </div>
 
                 <div class="form-group row facebook">
-                  <label class="v-center" for="facebook"><i class="fa fa-facebook fa-fw" style="color: blue; "></i></label>
-                  <div>
+                  <label class="control-label col-sm-1 col-xs-1" for="facebook"><i class="fa fa-facebook fa-fw" style="color: blue; margin-top: 8px; margin-left: 10px"></i></label>
+                  <div class="col-sm-9 col-xs-9">
                     <input type="url" name="facebook" class="form-control" id="facebook" placeholder="<?php echo htmlspecialchars($user_data["facebook"]);?>">
                   </div>
                 </div>
                 <div class="form-group row linkedin">
-                  <label class="v-center" for="linkedin"><i class="fa fa-linkedin fa-fw" style="color: blue; "></i></label>
-                  <div>
+                  <label class="control-label col-sm-1 col-xs-1" for="linkedin"><i class="fa fa-linkedin fa-fw" style="color: blue; margin-top: 8px; margin-left: 10px"></i></label>
+                  <div class="col-sm-9 col-xs-9">
                     <input type="url" name="linkedin" class="form-control" id="linkedin" placeholder="<?php echo htmlspecialchars($user_data["linkedin"]);?>">
                   </div>
                 </div>
                 <div class="form-group row google">
-                  <label class="v-center" for="google"><i class="fa fa-google fa-fw" style="color: red; "></i></label>
-                  <div>
+                  <label class="control-label col-sm-1 col-xs-1" for="google"><i class="fa fa-google fa-fw" style="color: red; margin-top: 8px; margin-left: 10px"></i></label>
+                  <div class="col-sm-9 col-xs-9">
                     <input type="url" name="google" class="form-control" id="google" placeholder="<?php echo htmlspecialchars($user_data["google"]);?>">
                   </div>
                 </div>
@@ -222,11 +227,6 @@ $img_scr= $user_data['picture'];                                                
 </form>
 
 
-<script>
-  $(function () {
-          $('[data-toggle="tooltip"]').tooltip()          //this script enables tooltip
-        })
-      </script>
 
     </body>
 
