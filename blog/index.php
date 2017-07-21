@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" href="./display-posts.css">
     <link rel="icon" href="images/arclogo.png" type="image/png"> 
     <script src="jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script> 
     <script src="./bootstrap4/js/bootstrap.min.js"></script>
 	<script src="https://use.fontawesome.com/1523c943cd.js"></script>
 	<script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
@@ -123,7 +124,7 @@ if ($result->num_rows > 0) {
 	    	// print_r($row);
 	    	echo "<div class = \"card col-sm-3 card-inverse " . $category . "\">";
 
-			echo "<img class = \"card-img centerimages\" src=\"" . $image . "\" height = \"100%\" width = \"100%\">";
+			echo "<img class = \"card-img centerimages\" src=\"" . $image . "\" height = \"75%\" width = \"100%\">";
 
 	    	echo "<a href=\"viewPost.php?postid=$postid\"><div class = \"card-img-overlay\"><h4 class = \"card-title\">" . $row["title"]. "</h4></div></a>";
 

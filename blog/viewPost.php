@@ -9,8 +9,13 @@
     <script src="./bootstrap4/js/bootstrap.min.js"></script>
 	<script src="https://use.fontawesome.com/1523c943cd.js"></script>
 	<style type="text/css">
+		html{
+			overflow-y: auto;
+		}
 		body{
 			font-family: Helvetica,Arial,sans-serif; 
+			overflow-x: hidden;
+			overflow-y: auto;
 		}
 		#disqus_thread{
 			margin: auto;
@@ -35,7 +40,7 @@
 			font-weight: bold;
 		}
 		.page{
-			height: 100vh;
+			height: 100%;
 		}
 		.author-date{
 			font-size: 1.3em;
