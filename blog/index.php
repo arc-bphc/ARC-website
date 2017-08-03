@@ -1,8 +1,10 @@
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<title>ARC Projects</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./bootstrap4/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="./display-posts.css">
     <link rel="icon" href="images/arclogo.png" type="image/png"> 
@@ -41,7 +43,7 @@ echo "</a>
   <div class=\"collapse navbar-collapse\" id=\"navbarTogglerDemo02\">
     <ul class=\"navbar-nav mr-auto mt-2 mt-md-0\">
       <li class=\"nav-item\">
-        <a class=\"nav-link\" href=\"#\">Home</a></li>";
+        <a class=\"nav-link\" href=\"../home/index.html\">Home</a></li>";
 
 if($_SESSION["login-status"] == 1 || $_SESSION["login-status"] == 2){
 	echo "<li class=\"nav-item\"><a class=\"nav-link\" href=\"form.php\">Write Post</a></li>";

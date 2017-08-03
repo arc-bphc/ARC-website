@@ -38,9 +38,11 @@ if(isset($_GET['email']) && isset($_GET['code'])){
 
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <title>Sign In</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
     <link rel="icon" href="images/arclogo.png" type="image/png">
