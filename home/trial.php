@@ -15,7 +15,9 @@ $sql = "INSERT INTO store ( name, email, comment)
 VALUES ('".$_POST["name"]."','".$_POST["email"]."','".$_POST["comments"]."')";
 
 if ($conn->query($sql) === TRUE) {
-    echo "New record created successfully";
+    
+    header("Location: index.html");
+    echo "<script type=\"text/javascript\">window.alert('Your response has been recorded. Thank you!'); window.location.href = '/index.html';</script>"; 
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
