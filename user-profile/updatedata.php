@@ -50,11 +50,11 @@ if ( isset( $_POST[ 'email' ] ) || isset( $_POST[ 'github' ] ) || isset( $_POST[
 		 }
 
 		 if(empty($errors)==true){
-			 	$file_name="dp/" . $id . "." .$file_ext;
+			 	$file_loc="dp/".$file_name;
 				#echo $file_name;
-				move_uploaded_file($file_tmp,$file_name);
+				move_uploaded_file($file_tmp,$file_loc);
 				echo " Profile pic uploaded";
-				$file_name = "\\\\ARC-website\\\\user-profile\\\\dp\\\\" . $id . "." . $file_ext;      //saving file in "dp" folder
+			    $file_name = "\\\\ARC-website\\\\user-profile\\\\dp\\\\" . $file_name;      //saving file in "dp" folder
 				//$str = "UPDATE INTO `users` (`name`, `picture`, `email`, `github`, `bio`, `id`) VALUES ('{$name}', '{$file_name}', '{$email}', '{$github}', '{$bio}', '{$id}') WHERE `ID`='$session_id'";
 		 }else{
 				print_r($errors);
@@ -67,21 +67,25 @@ if ( isset( $_POST[ 'email' ] ) || isset( $_POST[ 'github' ] ) || isset( $_POST[
 	else {
 	$str2="UPDATE `users` SET `picture`='{$file_name}',`email`='{$email}',`github`='{$github}',`bio`='{$bio}' WHERE `id`='$session_id'";
 	$q = mysqli_query( $GLOBALS[ 'con' ], $str2 );                          //updating database with new info
+	$qry = "SELECT * FROM users WHERE id = ".$_SESSION["id"];                       //
+	$user_datalist = $GLOBALS[ 'con' ]->query($qry);                                //fetch data of loggedin user
+	$user_data = $user_datalist->fetch_assoc();
+	$_SESSION['picture']=$user_data['picture'];
 	}
 	if ( $q ) {
 		echo "user inserted";
 		sleep(2);
-		header("Location: bootstrapform.php");		
+		header("Location: editProfile.php");		
 	} else {
 		echo "sql error";
 		sleep(2);
 		die( mysqli_error( $GLOBALS[ 'con' ] ) );
-		header("Location: bootstrapform.php");
+		header("Location: editProfile.php");
 	}
 
 }
 	else{
-		header("Location: bootstrapform.php");
+		header("Location: editProfile.php");
 	}
 
 

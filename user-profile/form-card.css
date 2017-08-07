@@ -4,12 +4,13 @@ body {
 	font-family: "Helvetica Nueue",Arial,Verdana,sans-serif;
 	background-color: #E5E9ED;
 }
+/*
 .btn:hover,
 .btn:focus,
 .btn:active{
     outline: 0 !important;
 }
-/* entire container, keeps perspective 
+ entire container, keeps perspective 
 .card-container {
 	  -webkit-perspective: 800px;
    -moz-perspective: 800px;
@@ -65,14 +66,14 @@ body {
 	z-index: 2;
 }
 
-/* back, initially hidden pane */
+/* back, initially hidden pane 
 .back {
 		-webkit-transform: rotateY( 180deg );
    -moz-transform: rotateY( 180deg );
      -o-transform: rotateY( 180deg );
         transform: rotateY( 180deg );
         z-index: 2;
-}
+}*/
 
 .back .btn-simple{
     position: absolute;
@@ -93,8 +94,8 @@ body {
 	border-radius: 4px;
 }
 .card .cover{
-    height: 275px;
-    overflow: hidden;
+    
+    overflow: auto;
     border-radius: 4px 4px 0 0;
 }
 .card .cover img{
@@ -103,7 +104,7 @@ body {
 .card .user{
     border-radius: 50%;
     display: block;
-    height: 120px;
+    /*height: 275px;*/
     margin: -55px auto 0;
     width: 120px;
 }
