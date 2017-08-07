@@ -19,7 +19,7 @@
   <script src="https://use.fontawesome.com/1523c943cd.js"></script>
   <script src="../blog/bootstrap4/js/bootstrap.min.js"></script>
   <script src="https://apis.google.com/js/api:client.js"></script> 
-  <script src="sign.js"></script>
+  <script src="login.js"></script>
   
   
 </head>

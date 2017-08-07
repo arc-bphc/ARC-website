@@ -41,7 +41,7 @@ echo "<nav class=\"navbar navbar-toggleable-md navbar-inverse bg-inverse\">
       <li class=\"nav-item\"><a class=\"nav-link\" href=\"form.php\">Write Post</a></li>
       <li class=\"nav-item\"><a class=\"nav-link\" href=\"index.php\">Reader</a></li>
       <li class=\"nav-item\">
-        <a class=\"nav-link\" href=\"sign.php\" onclick=\"signOut();\">Logout</a>
+        <a class=\"nav-link\" href=\"../home/index.php\">Logout</a>
       </li>
      <li class=\"nav-item\">
       <div class=\"dropdown\">
@@ -132,7 +132,7 @@ if ($result->num_rows > 0) {
 
 } 
 else {
-    echo "<h2>No new posts</h2>";
+    echo "<h2 id=\"noPosts\">No new posts</h2>";
 }
 
 $conn->close();

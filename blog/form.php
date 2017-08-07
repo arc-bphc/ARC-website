@@ -100,7 +100,7 @@ if($_SESSION["login-status"] == 2){
 }
 
 echo "<li class=\"nav-item\">
-        <a class=\"nav-link\" href=\"sign.php\" onclick=\"signOut();\">";
+        <a class=\"nav-link\" href=\"../home/index.php\">";
 
 if($_SESSION["login-status"] == 0){
   echo "Login";
