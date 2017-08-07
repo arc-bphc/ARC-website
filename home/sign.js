@@ -80,7 +80,7 @@
         var test = this.responseText;
         test = test.replace(/\"/g, "");
         if(test == "success"){
-          window.location.href = "./index.php";
+          window.location.href = "../blog/index.php";
         }  
         document.getElementById("error").innerHTML = test;
           

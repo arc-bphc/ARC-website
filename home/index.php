@@ -1,3 +1,7 @@
+<?php
+  session_start();
+  session_destroy();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,12 +15,25 @@
   <link rel="stylesheet" type="text/css" href="home.css">
 
   <script src="../blog/jquery.min.js"></script>
+  <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
   <script src="https://use.fontawesome.com/1523c943cd.js"></script>
   <script src="../blog/bootstrap4/js/bootstrap.min.js"></script>
-  <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+  <script src="https://apis.google.com/js/api:client.js"></script> 
+  <script src="sign.js"></script>
+  
   
 </head>
 <body data-spy="scroll" data-target=".navbar" data-offset="60">
+
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.9&appId=122099171720574";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
 <div id="loader-wrapper">
     <div id="loader"></div>
  
