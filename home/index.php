@@ -13,7 +13,7 @@
   <script src="../blog/jquery.min.js"></script>
   <script src="../blog/bootstrap4/js/bootstrap.min.js"></script>
   <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
-  <script src="home.js"></script>
+  
 </head>
 <body data-spy="scroll" data-target=".navbar" data-offset="60">
 <div id="loader-wrapper">
@@ -51,7 +51,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="../blog/sign.php">Login/Signup<span class="sr-only">(current)</span>
+          <a id="loginUser" class="nav-link" href="#">Login<span class="sr-only">(current)</span>
           </a>
         </li>
         <li class="nav-item">
@@ -62,7 +62,15 @@
     </div>
   </nav>
 
-
+  <div data-pop="slide-down" id="popup">
+      <div class="popupcontrols">
+          <span id="popupclose">&times;</span>
+      </div>
+      <div class="popupcontent">
+          <h1>Some Popup Content</h1>
+      </div>
+  </div>
+  <div id="overlay"></div>
 
 
   <div class="jumbotron text-center">
@@ -292,4 +300,5 @@ Also, we proudly boast of a full scale robotic arm and a micro-quadcopter develo
     async defer></script>
 
   </body>
+  <script src="home.js"></script>
   </html>
