@@ -11,6 +11,7 @@
   <link rel="stylesheet" type="text/css" href="home.css">
 
   <script src="../blog/jquery.min.js"></script>
+  <script src="https://use.fontawesome.com/1523c943cd.js"></script>
   <script src="../blog/bootstrap4/js/bootstrap.min.js"></script>
   <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
   
@@ -64,10 +65,24 @@
 
   <div data-pop="slide-down" id="popup">
       <div class="popupcontrols">
-          <span id="popupclose">&times;</span>
+        <span id="popupclose">
+          <i class="fa fa-times" aria-hidden="true"></i>
+        </span>
       </div>
+
       <div class="popupcontent">
-          <h1>Some Popup Content</h1>
+        <div class="center">
+          <h3>Login with:</h3>
+        </div>
+        <div class="button-wrapper">
+          <button id="customSignInBtn" class="loginBtn loginBtn--google" type="button">
+            <i aria-hidden="true" class="fa fa-google"></i>
+          </button>
+
+          <button onclick="FBsignin()" class="loginBtn loginBtn--facebook" type="button">
+            <i class="fa fa-facebook" aria-hidden="true"></i>
+          </button>
+        </div>
       </div>
   </div>
   <div id="overlay"></div>
@@ -246,8 +261,8 @@ Also, we proudly boast of a full scale robotic arm and a micro-quadcopter develo
       </div>
     </div>
   </div>
-                    <script>
-                      $(document).ready(function(){
+<script>
+  $(document).ready(function(){
   // Add smooth scrolling to all links in navbar + footer link
   $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
     // Make sure this.hash has a value before overriding default behavior

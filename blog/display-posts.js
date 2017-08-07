@@ -180,9 +180,3 @@ function formatDate(str,postid) {
   displayDate =  day + ' ' + monthNames[monthIndex] + ' ' + year;
   document.getElementById("date"+postid).innerHTML = displayDate;
 }
-
-
-// -------loader----------------------------
-$('body').imagesLoaded().always( function( instance ) {
-    $('body').addClass('loaded');
-  });

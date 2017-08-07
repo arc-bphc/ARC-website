@@ -140,4 +140,9 @@ $conn->close();
 ?>
 
 </body>
+<script type="text/javascript">
+  $('body').imagesLoaded().always( function( instance ) {
+    $('body').addClass('loaded');
+  });
+</script>
 </html>
