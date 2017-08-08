@@ -124,19 +124,19 @@
           </ol>
           <div class="carousel-inner" role="listbox">
             <div class="carousel-item active">
-              <img class="d-block" src="images/robot.jpg" height="385px" width="771px" alt="First slide">
+              <img class="d-block img-fluid" src="images/robot.jpg" height="385px" width="771px" alt="First slide">
               <div class="carousel-caption d-none d-md-block">
                 <a class="carousel-links" target="_blank" href="https://bits-atmos.org/"><h3>Gear up for ATMOS 17</h3></a>
               </div>
             </div>
             <div class="carousel-item">
-              <img class="d-block" src="images/linefolo16.jpg" height="385px" width="771px" alt="Second slide">
+              <img class="d-block img-fluid" src="images/linefolo16.jpg" height="385px" width="771px" alt="Second slide">
               <div class="carousel-caption d-none d-md-block">
                 <h3>Get started into robotics with the classic line follower</h3>
               </div>
             </div>
             <div class="carousel-item">
-              <img class="d-block" src="images/botshot16.jpg" height="385px" width="771px" alt="Third slide">
+              <img class="d-block img-fluid" src="images/botshot16.jpg" height="385px" width="771px" alt="Third slide">
               <div class="carousel-caption d-none d-md-block">
                 <h3>Also, do come for the botshot workshop</h3>
               </div>
