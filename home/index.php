@@ -8,7 +8,7 @@
   <title>ARC website</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
+  <link rel="icon" href="../blog/images/arc.png" type="image/png">
   <link rel="stylesheet" href="../blog/bootstrap4/css/bootstrap.min.css">
   <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
@@ -80,7 +80,7 @@
     </div>
   </nav>
 
-  <div data-pop="slide-down" id="popup">
+  <div data-pop="slide-down" id="popup" <?php if($_GET["status"]==1){echo "class=\"show\"";} ?>>
       <div class="popupcontrols">
         <span id="popupclose">
           <i class="fa fa-times" aria-hidden="true"></i>
@@ -102,16 +102,58 @@
         </div>
       </div>
   </div>
-  <div id="overlay"></div>
+  <div id="overlay" <?php if($_GET["status"]==1){echo "class=\"show\"";} ?>></div>
 
 
   <div class="jumbotron text-center">
-    <h1>AUTOMATION AND ROBOTICS CLUB</h1> 
-    <h3>BITS-PILANI HYDERABAD CAMPUS</h3> 
+    <img src="images/arc-full.png" height="150px" width="400">
   </div>
 
 
   <!-- Container (About Section) -->
+
+  <div id="events" class="container-fluid text-center bg-grey">
+    <div class="parallax4">
+      <div class="content3">
+        <h2>Upcoming events and workshops:</h2>
+        <div id="carouselExampleIndicators" class="carousel slide text-center" data-ride="carousel">
+          <ol class="carousel-indicators">
+            <li data-target="#carouselEampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+          </ol>
+          <div class="carousel-inner" role="listbox">
+            <div class="carousel-item active">
+              <img class="d-block" src="images/robot.jpg" height="385px" width="771px" alt="First slide">
+              <div class="carousel-caption d-none d-md-block">
+                <a class="carousel-links" target="_blank" href="https://bits-atmos.org/"><h3>Gear up for ATMOS 17</h3></a>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img class="d-block" src="images/linefolo16.jpg" height="385px" width="771px" alt="Second slide">
+              <div class="carousel-caption d-none d-md-block">
+                <h3>Get started into robotics with the classic line follower</h3>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img class="d-block" src="images/botshot16.jpg" height="385px" width="771px" alt="Third slide">
+              <div class="carousel-caption d-none d-md-block">
+                <h3>Also, do come for the botshot workshop</h3>
+              </div>
+            </div>
+          </div>
+          <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>   
 
 
   <div id="about" class="container-fluid">
@@ -150,52 +192,6 @@ Also, we proudly boast of a full scale robotic arm and a micro-quadcopter develo
       </div>
     </div>
   </div>
-
-
-  <div id="events" class="container-fluid text-center bg-grey">
-    <div class="parallax4">
-      <div class="content3">
-        <h2>Upcoming events and workshops:</h2>
-        <div id="carouselExampleIndicators" class="carousel slide text-center" data-ride="carousel">
-          <ol class="carousel-indicators">
-            <li data-target="#carouselEampleIndicators" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-          </ol>
-          <div class="carousel-inner" role="listbox">
-            <div class="carousel-item active">
-              <img class="d-block img-fluid" src="images/robot.jpg" height="385px" width="771px" alt="First slide">
-              <div class="carousel-caption d-none d-md-block">
-                <h3>Gear up for ATMOS 17</h3>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <img class="d-block img-fluid" src="images/linefolo16.jpg" height="385px" width="771px" alt="Second slide">
-              <div class="carousel-caption d-none d-md-block">
-                <h3>Get started into robotics with the classic line follower</h3>
-                <p>...</p>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <img class="d-block img-fluid" src="images/botshot16.jpg" height="385px" width="771px" alt="Third slide">
-              <div class="carousel-caption d-none d-md-block">
-                <h3>Also, do come for the botshot workshop</h3>
-                <p>...</p>
-              </div>
-            </div>
-          </div>
-          <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-          </a>
-          <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>   
 
 
   <div id="achievements" class="container-fluid text-center bg-grey">
