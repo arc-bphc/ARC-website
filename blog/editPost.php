@@ -12,6 +12,9 @@
         text-align: right;
       }
     }
+      body{
+        overflow-x: hidden;
+      }
       h2{
         text-align: center;
         margin-top: 20px;
@@ -70,7 +73,12 @@
 
 session_start();
 
+if($_SESSION["login-status"] != 1 && $_SESSION["login-status"] != 2) {
+  header("Location: ../home/index.php");
+}
+
 $postId = $_GET["id"];
+$_SESSION["postId"] = $postId;
 
 require_once '../config.php'; // Create connection
 $conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);// Check connection
@@ -87,12 +95,14 @@ if ($result->num_rows == 1) {
   $blogTitle = $row["title"];
   $author = $row["author"];
   $content = $row["content"];
+  $category = $row["category"];
+}
+
+if($author != $_SESSION["user"]){
+  header("Location: ../home/index.php");
 }
 
 
-if($_SESSION["login-status"] != 1 && $_SESSION["login-status"] != 2) {
-  header("Location: sign.php");
-}
 
 echo "<nav class=\"navbar navbar-toggleable-md navbar-inverse bg-inverse\">
   <button class=\"navbar-toggler navbar-toggler-right\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarTogglerDemo02\" aria-controls=\"navbarTogglerDemo02\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
@@ -138,11 +148,11 @@ echo "</a>
 
 echo "
 <div id='ckeditor'>
-  <form name='form2' action='submit.php' method='post' enctype='multipart/form-data'>
+  <form name='form2' action='saveChanges.php' method='post' enctype='multipart/form-data'>
     <div class='form-group row'>
       <label class='col-sm-2 form-control-label'>Blog Title:</label>
       <div class='col-sm-8'>
-        <input type='text' class='form-control' id='blogTitle' name='blogTitle' placeholder='Enter Title'>
+        <input type='text' class='form-control' id='blogTitle' name='blogTitle' placeholder='$blogTitle'>
       </div>
     </div>
     <textarea name='editor1' id='editor1' rows='10' cols='80'>
@@ -158,6 +168,7 @@ echo "
       <label class='col-sm-3 form-control-label'>Category:</label>
       <div class='col-sm-9'>
         <select name='category' class='custom-select'>
+          <option selected disabled>Select a different category</option>
           <option value='1'>General</option>
           <option value='2'>Software</option>
           <option value='3'>Arduino</option>

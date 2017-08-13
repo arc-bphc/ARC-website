@@ -71,7 +71,7 @@
 session_start();
 
 if($_SESSION["login-status"] != 1 && $_SESSION["login-status"] != 2) {
-  header("Location: sign.php");
+  header("Location: ../home/index.php");
 }
 
 echo "<nav class=\"navbar navbar-toggleable-md navbar-inverse bg-inverse\">
