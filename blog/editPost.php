@@ -84,6 +84,8 @@ $result = $conn->query($sql);
 
 if ($result->num_rows == 1) {
   $row = $result->fetch_assoc();
+  $blogTitle = $row["title"];
+  $author = $row["author"];
   $content = $row["content"];
 }
 
