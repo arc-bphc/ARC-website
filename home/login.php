@@ -29,7 +29,7 @@ $result = $conn->query($sql);
 if ($result->num_rows == 0) {
   $sql = "INSERT INTO users (name, email, password, isadmin, picture)
   VALUES ('$name', '$email', '$passwordA', $isadmin, '$picture')";
-  
+  $result = $conn->query($sql);
   $sql = "SELECT * FROM users WHERE email = '$email'";
   $result = $conn->query($sql);
   if ($conn->query($sql)) {

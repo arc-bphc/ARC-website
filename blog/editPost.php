@@ -70,6 +70,24 @@
 
 session_start();
 
+$postId = $_GET["id"];
+
+require_once '../config.php'; // Create connection
+$conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);// Check connection
+
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+
+$sql = "SELECT * FROM blogPosts where id = $postId";
+$result = $conn->query($sql);
+
+if ($result->num_rows == 1) {
+  $row = $result->fetch_assoc();
+  $content = $row["content"];
+}
+
+
 if($_SESSION["login-status"] != 1 && $_SESSION["login-status"] != 2) {
   header("Location: sign.php");
 }
@@ -116,44 +134,43 @@ echo "</a>
 </nav>";
 
 
-?>
-
-
-<div id="ckeditor">
-  <form name="form2" action="submit.php" method="post" enctype="multipart/form-data">
-    <div class="form-group row">
-      <label class="col-sm-2 form-control-label">Blog Title:</label>
-      <div class="col-sm-8">
-        <input type="text" class="form-control" id="blogTitle" name="blogTitle" placeholder="Enter Title">
+echo "
+<div id='ckeditor'>
+  <form name='form2' action='submit.php' method='post' enctype='multipart/form-data'>
+    <div class='form-group row'>
+      <label class='col-sm-2 form-control-label'>Blog Title:</label>
+      <div class='col-sm-8'>
+        <input type='text' class='form-control' id='blogTitle' name='blogTitle' placeholder='Enter Title'>
       </div>
     </div>
-    <textarea name="editor1" id="editor1" rows="10" cols="80">
-       
+    <textarea name='editor1' id='editor1' rows='10' cols='80'>
+       $content
     </textarea>
-    <script type="text/javascript">
+    <script type='text/javascript'>
       CKEDITOR.replace('editor1',{
         height: 600,
-        filebrowserUploadUrl: "./fileUpload.php",
+        filebrowserUploadUrl: './fileUpload.php',
       });
     </script>
-    <div id="category-container" class="form-group row">
-      <label class="col-sm-3 form-control-label">Category:</label>
-      <div class="col-sm-9">
-        <select name="category" class="custom-select">
-          <option value="1">General</option>
-          <option value="2">Software</option>
-          <option value="3">Arduino</option>
-          <option value="4">Miscellaneous</option>
+    <div id='category-container' class='form-group row'>
+      <label class='col-sm-3 form-control-label'>Category:</label>
+      <div class='col-sm-9'>
+        <select name='category' class='custom-select'>
+          <option value='1'>General</option>
+          <option value='2'>Software</option>
+          <option value='3'>Arduino</option>
+          <option value='4'>Miscellaneous</option>
         </select>
       </div>
     </div>
-    <div class="form-group button row">
-      <div class="col-sm-12">
-        <button type="submit" name="submit" class="submit btn btn-secondary">Submit</button>
+    <div class='form-group button row'>
+      <div class='col-sm-12'>
+        <button type='submit' name='submit' class='submit btn btn-secondary'>Submit</button>
       </div>
     </div>
   </form>
-</div>
+</div>";
+?>
 
 </body>
 </html> 
