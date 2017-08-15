@@ -76,9 +76,51 @@
           <a class="nav-link" href="#contact">Contact<span class="sr-only">(current)</span>
           </a>
         </li>
+        <li class="nav-item">
+         <a id="webdev" class="nav-link" data-toggle="modal" data-target="#wd"><i class="fa fa-info-circle" aria-hidden="true"></i><span class="sr-only">(current)</span>
+          </a>
+        </li>
       </ul>
     </div>
   </nav>
+
+  <!-- Modal -->
+<div id="wd" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-lg">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+       <div class="modal-header">
+        <h5 class="modal-title" style="color:black">Web Dev Team</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <div class="row">
+      <div class="col-sm-3 text-center">
+        <img src="images/robot.jpg" class="rounded-circle" alt="bot1" width="150" height="150">
+        <p style="color:black">Yashdeep</p>
+      </div>
+      <div class="col-sm-3 text-center">
+        <img src="images/robot.jpg" class="rounded-circle" alt="bot1" width="150" height="150">
+        <p style="color:black">Shyam</p>
+      </div> 
+      <div class="col-sm-3 text-center">
+        <img src="images/robot.jpg" class="rounded-circle" alt="bot1" width="150" height="150">
+        <p style="color:black">Shristy</p>
+      </div> 
+      <div class="col-sm-3 text-center">
+        <img src="images/robot.jpg" class="rounded-circle" alt="bot1" width="150" height="150">
+        <p style="color:black">Srinkhala</p>
+      </div>
+      </div>
+      </div>
+      </div>
+    </div>
+
+  </div>
+</div>
 
   <div data-pop="slide-down" id="popup" <?php if($_GET["status"]==1){echo "class=\"show\"";} ?>>
       <div class="popupcontrols">
