@@ -78,7 +78,7 @@ if($_SESSION["login-status"] != 1 && $_SESSION["login-status"] != 2) {
 }
 
 $postId = $_GET["id"];
-$_SESSION["postId"] = $postId;
+$_SESSION["postID"] = $postId;
 
 require_once '../config.php'; // Create connection
 $conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);// Check connection

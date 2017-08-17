@@ -26,13 +26,13 @@ if (!$conn) {
 
 $sql = "UPDATE blogPosts SET title = '$blogTitle',  content = '$content', category = '$category' WHERE id = $postID";
 
-if($blogTitle == ""){
+if($blogTitle == "" && $category != ""){
 	$sql = "UPDATE blogPosts SET content = '$content', category = '$category' WHERE id = $postID";
 }
-elseif ($category == "") {
+else if ($category == "" && $blogTitle != "") {
 	$sql = "UPDATE blogPosts SET title = '$blogTitle', content = '$content' WHERE id = $postID";
 }
-else{
+else if($category == "" && $blogTitle == ""){
 	$sql = "UPDATE blogPosts SET content = '$content' WHERE id = $postID";
 }
 

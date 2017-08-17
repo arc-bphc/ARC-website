@@ -512,3 +512,7 @@ a.active{
 .button-wrapper{
     text-align: center;
 }
+
+#wd.modal {
+    top:15%;
+}

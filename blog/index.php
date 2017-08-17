@@ -133,6 +133,10 @@ if ($result->num_rows > 0) {
 	        
 	        echo "<div class = \"card-footer\"><div class=\"author\">". $row["author"] . "</div>". "<p id=\"date". $postid ."\"><script>formatDate(\"$date\",$postid);</script></p>";
 
+	        if($row["author"] == $_SESSION["user"]){
+				echo " <div><button onclick=\"window.location.href='editPost.php?id=".$postid."'\">Edit Post</button></div> ";
+			}
+
 			if($_SESSION["login-status"] == 2){
 				echo " <div><button onclick=\"manage(". $postid .", 2)\">Withdraw From Publication</button></div> ";
 			}
