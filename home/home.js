@@ -1,9 +1,8 @@
 $('body').imagesLoaded().always( function( instance ) {
-	$('body').imagesLoaded( { background: '.item' }, function() {
+	$('body').imagesLoaded().always( { background: '.item' }, function() {
 	  $('body').addClass('loaded');
 	});
-    
-  });
+ });
 
 document.getElementById("loginUser").addEventListener('click', function() {
 	overlay.className = 'show';

@@ -142,7 +142,7 @@ $conn->close();
 </body>
 <script type="text/javascript">
 $('body').imagesLoaded().always( function( instance ) {
-	$('body').imagesLoaded( { background: '.item' }, function() {
+	$('body').imagesLoaded().always( { background: '.item' }, function() {
 	  $('body').addClass('loaded');
 	});
  });
