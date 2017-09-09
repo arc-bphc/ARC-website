@@ -1,6 +1,9 @@
 <?php
   session_start();
-  session_destroy();
+  if($_GET["status"]==2){
+    session_destroy();
+    echo "HELLO!!!";
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -67,11 +70,11 @@
         <li class="nav-item">
           <a class="nav-link" href="../blog/index.php">Blog<span class="sr-only">(current)</span>
           </a>
-        </li>
+        </li><?php if(!isset($_SESSION["login-status"]) || empty($_SESSION["login-status"])) echo '
         <li class="nav-item">
           <a id="loginUser" class="nav-link" href="#">Login<span class="sr-only">(current)</span>
           </a>
-        </li>
+        </li>'?>
         <li class="nav-item">
           <a class="nav-link" href="#contact">Contact<span class="sr-only">(current)</span>
           </a>

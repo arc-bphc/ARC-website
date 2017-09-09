@@ -33,9 +33,14 @@
          <a class=\"nav-link\" href=\"../home/home.html\">Home</a>
          <li class=\"nav-item\"><a class=\"nav-link\" href=\"../blog/form.php\">Write Post</a></li>
          <li class=\"nav-item\"><a class=\"nav-link\" href=\"../blog/index.php\">Reader</a></li>
-         <li class=\"nav-item\">
-           <a class=\"nav-link\" href=\"../blog/sign.php\" onclick=\"signOut();\">Logout</a>
-         </li>
+         <li class=\"nav-item\">";
+           if($_SESSION["login-status"] == 0){
+              echo "<a class=\"nav-link\" href=\"../home/index.php?status=1\">Login";
+            }
+            else{
+            echo "<a class=\"nav-link\" href=\"../home/index.php?status=2\">Logout";
+            }
+         echo "</li>
        </ul>
      </div>
    </nav>";

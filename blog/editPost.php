@@ -136,7 +136,7 @@ if($_SESSION["login-status"] == 0){
   echo "<a class=\"nav-link\" href=\"../home/index.php?status=1\">Login";
 }
 else{
-echo "<a class=\"nav-link\" href=\"../home/index.php?status=0\">Logout";
+echo "<a class=\"nav-link\" href=\"../home/index.php?status=2\">Logout";
 }
 
 echo "</a>

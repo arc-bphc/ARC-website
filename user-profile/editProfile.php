@@ -5,7 +5,7 @@ session_start();
 if ( $GLOBALS[ 'con' ] ) {
 
   if($_SESSION["login-status"] != 1 && $_SESSION["login-status"] != 2) {
-    header("Location: ../blog/sign.php");
+    header("Location: ../home/index.php?status=1");
   }
 
 
@@ -113,7 +113,7 @@ $img_scr= $user_data['picture'];                                                
         <li class=\"nav-item\"><a class=\"nav-link\" href=\"../blog/form.php\">Write Post</a></li>
         <li class=\"nav-item\"><a class=\"nav-link\" href=\"../blog/index.php\">Reader</a></li>
         <li class=\"nav-item\">
-          <a class=\"nav-link\" href=\"../blog/sign.php\">Logout</a>
+          <a class=\"nav-link\" href=\"../home/index.php?status=2\">Logout</a>
         </li>
       </ul>
     </div>
