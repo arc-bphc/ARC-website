@@ -202,7 +202,7 @@
 
 
   <div id="about" class="container-fluid">
-    <div class="parallax1">
+    <div class="parallax1 back-load">
       <div class="content">
         <div class="row">
           <div class="col-sm-8">
@@ -222,7 +222,7 @@ Also, we proudly boast of a full scale robotic arm and a micro-quadcopter develo
   </div>  
 
   <div id="vision" class="container-fluid bg-grey">
-    <div class="parallax2">
+    <div class="parallax2 back-load">
       <div class="content">
         <div class="row">
           <div class="col-sm-4">
@@ -240,7 +240,7 @@ Also, we proudly boast of a full scale robotic arm and a micro-quadcopter develo
 
 
   <div id="achievements" class="container-fluid text-center bg-grey">
-    <div class="parallax3">
+    <div class="parallax3 back-load">
       <div class="content2">
         <h2>ACHIEVEMENTS</h2><br>
         <h4>What we have created</h4>
