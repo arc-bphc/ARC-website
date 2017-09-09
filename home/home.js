@@ -1,6 +1,8 @@
 $('body').imagesLoaded().always( function( instance ) {
-    // $('body').addClass('loaded');
-    console.log("images loaded");
+	$('body').imagesLoaded( { background: '.item' }, function() {
+	  $('body').addClass('loaded');
+	});
+    
   });
 
 document.getElementById("loginUser").addEventListener('click', function() {

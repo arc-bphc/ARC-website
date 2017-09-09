@@ -167,8 +167,10 @@ $conn->close();
 
 </body>
 <script type="text/javascript">
-  $('body').imagesLoaded().always( function( instance ) {
-    $('body').addClass('loaded');
-  });
+$('body').imagesLoaded().always( function( instance ) {
+	$('body').imagesLoaded( { background: '.item' }, function() {
+	  $('body').addClass('loaded');
+	});
+ });
 </script>
 </html>
