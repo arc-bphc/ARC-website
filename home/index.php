@@ -18,7 +18,7 @@
   <link rel="stylesheet" type="text/css" href="home.css">
 
   <script src="../blog/jquery.min.js"></script>
-  <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+  <script src="../imagesLoaded.js"></script>
   <script src="https://use.fontawesome.com/1523c943cd.js"></script>
   <script src="../blog/bootstrap4/js/bootstrap.min.js"></script>
   <script src="https://apis.google.com/js/api:client.js"></script> 
