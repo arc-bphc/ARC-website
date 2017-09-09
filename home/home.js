@@ -1,5 +1,5 @@
 $('body').imagesLoaded().always( function( instance ) {
-	$('body').imagesLoaded().always( { background: '.item' }, function() {
+	$('.back-load').imagesLoaded().always( { background: true }, function() {
 	  $('body').addClass('loaded');
 	});
  });
