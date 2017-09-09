@@ -281,16 +281,16 @@ Also, we proudly boast of a full scale robotic arm and a micro-quadcopter develo
           <div class="col-sm-6 col-xs-12">     
             <!-- Container (Contact Section) -->
             <div id="contact" class="container-fluid">
-              <h2 class="text-center">CONTACT</h2>
+              <h2 class="text-center">CONTACT US</h2>
               <div class="row text-center">
-                <div class="col-sm-5">
+                <div class="col-sm-12">
                   <p>Contact us and we'll get back to you within 24 hours.</p>
                   <p><span class="glyphicon glyphicon-map-marker"></span> Hyderabad, Telangana</p>
                   <p><span class="glyphicon glyphicon-phone"></span> +00 1515151515</p>
                   <p><span class="glyphicon glyphicon-envelope"></span> arc.bphc@gmail.com</p>
                 </div>
 		
-                <div class="col-sm-7 slideanim">
+<!--                 <div class="col-sm-7 slideanim">
                   <form action="trial.php" method="post">
                     <div class="row">
                       <div class="col-sm-6 form-group">
@@ -307,7 +307,7 @@ Also, we proudly boast of a full scale robotic arm and a micro-quadcopter develo
                       </div>
                     </div>
                   </form>
-                </div>
+                </div> -->
 		
               </div>
             </div>
