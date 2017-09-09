@@ -1,8 +1,7 @@
-$('body').imagesLoaded().always( function( instance ) {
-	$('.back-load').imagesLoaded().done({ background: true }, function() {
-	  $('body').addClass('loaded');
-	});
- });
+
+$('.body').imagesLoaded({ background: '.back-load' }, function() {
+  $('body').addClass('loaded');
+});
 
 document.getElementById("loginUser").addEventListener('click', function() {
 	overlay.className = 'show';
