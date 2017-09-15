@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./bootstrap4/css/bootstrap.min.css">
     <link rel="icon" href="images/arclogo.png" type="image/png">
     <script src="jquery.min.js"></script>
+    <script src="typed.js/lib/typed.js"></script>
     <script src="./bootstrap4/js/bootstrap.min.js"></script>
 	<script src="https://use.fontawesome.com/1523c943cd.js"></script>
 	<style type="text/css">
@@ -91,12 +92,11 @@
 		  var monthIndex = parseInt(parts[1]);
 
 		  displayDate =  day + ' ' + monthNames[monthIndex] + ' ' + year;
-		  document.getElementById("date").innerHTML = displayDate;
+		  return displayDate;
 		}
 	</script>
 </head>
 <body>
-<div class="back-icon"><a href="index.php"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i></a></div>
 <?php
 session_start();
 
@@ -121,17 +121,60 @@ $blogPost = $row['content'];
 $title = $row['title']; 
 $author = $row['author'];
 $date = substr($row['uploadtime'],0,10);
-
-
-echo "<div class=\"row page\"><div class=\"col-md-2 side\"></div><div class=\"col-md-8 main\">
-		<div class=\"row\"><h1 id=\"title\">$title<h1></div>
-		<div class=\"row\"><div class=\"col-md-9 col-sm-6\"></div>
-							<div class=\"col-md-3 col-sm-6 author-date\">$author<br><p id=\"date\"><script>formatDate(\"$date\")</script></div></div>
-		<div id=\"content\" class=\"row\">" . $blogPost . "</div>";
-
 ?>
-<div id="disqus_thread"></div></div>
-<div class="col-md-2 side"></div></div>
+
+
+<div class="back-icon"><a href="index.php"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i></a></div>
+
+<div class="row page">
+	<div class="col-md-2 side"></div>
+	<div class="col-md-8 main">
+		<div class="row">
+			<h1 id="title"></h1>
+		</div>
+		<div class="row">
+			<div class="col-md-9 col-sm-6"></div>
+			<div class="col-md-3 col-sm-6 author-date"><span id="author"></span><br>
+				<p><span id="date"></span>
+				</p>	
+			</div>
+			</div>
+			<div id="content" class="row"><?php echo $blogPost ?></div>";
+
+
+			<div id="disqus_thread"></div></div>
+			<div class="col-md-2 side"></div></div>
+			
+
+			<!-- typed.js  to create live typing effect-->
+			<script >
+				var typed = new Typed('#title', {
+					strings: ["<?php echo $title ?>"],
+					typeSpeed: 30,
+					showCursor: true,
+					cursorChar: "_",
+					loop: false
+				});
+
+				var typed = new Typed('#author', {
+					strings: ["<?php echo $author ?>"],
+					typeSpeed: 30,
+					showCursor: true,
+					cursorChar: "_",
+					loop: false
+				});
+				var date = formatDate("<?php echo $date ?>");
+				console.log(date);
+				var typed = new Typed('#date', {
+					strings: [formatDate("<?php echo $date ?>")],
+					typeSpeed: 30,
+					showCursor: true,
+					cursorChar: "_",
+					loop: false
+				});
+
+			</script>
+
 
 </body>
 <script>
