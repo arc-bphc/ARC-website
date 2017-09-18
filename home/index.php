@@ -112,19 +112,19 @@
       <div class="modal-body">
       <div class="row">
       <div class="col-sm-3 text-center">
-        <img src="images/robot.jpg" class="rounded-circle" alt="bot1" width="150" height="150">
+        <img src="images/yashdeep.jpg" class="rounded-circle" alt="bot1" width="150" height="150">
         <p style="color:black">Yashdeep</p>
       </div>
       <div class="col-sm-3 text-center">
-        <img src="images/robot.jpg" class="rounded-circle" alt="bot1" width="150" height="150">
+        <img src="images/shyam.jpg" class="rounded-circle" alt="bot1" width="150" height="150">
         <p style="color:black">Shyam</p>
       </div> 
       <div class="col-sm-3 text-center">
-        <img src="images/robot.jpg" class="rounded-circle" alt="bot1" width="150" height="150">
+        <img src="images/shristy.jpg" class="rounded-circle" alt="bot1" width="150" height="150">
         <p style="color:black">Shristy</p>
       </div> 
       <div class="col-sm-3 text-center">
-        <img src="images/robot.jpg" class="rounded-circle" alt="bot1" width="150" height="150">
+        <img src="images/srinkhala.jpg" class="rounded-circle" alt="bot1" width="150" height="150">
         <p style="color:black">Srinkhala</p>
       </div>
       </div>
