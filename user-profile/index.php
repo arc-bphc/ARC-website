@@ -167,6 +167,18 @@ echo '<h2 class="title">Members</h2>
     $bio = $result['bio'];
     $isadmin = 'disabled="disabled"';
     if(!$result['isadmin'] && $user_data['isadmin']){ $isadmin="";}                       //unique modal for every user which gets triggered when you click their picture
+
+    $getProjId = mysqli_query($GLOBALS['con'] , "SELECT * FROM projects WHERE `UserId`= $id ");
+    $projs = array();
+    $projId = array();
+    while($tempid = mysqli_fetch_array($getProjId)['ProjectId']){
+      $getProjList = mysqli_query($GLOBALS['con'] , "SELECT * FROM blogPosts WHERE `id`= $tempid ");
+      $getProjList = mysqli_fetch_array($getProjList);
+      array_push($projs,$getProjList['title']);
+      array_push($projId,$tempid);
+
+    }
+    
     echo '
     <div class="col-lg-3 col-sm-6">
      <div class="card-container">
