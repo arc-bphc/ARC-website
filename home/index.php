@@ -1,8 +1,11 @@
 <?php
+// ini_set('display_errors', 1);
+// ini_set('display_startup_errors', 1);
+// error_reporting(E_ALL);
+
   session_start();
   if($_GET["status"]==2){
     session_destroy();
-    echo "HELLO!!!";
   }
 ?>
 <!DOCTYPE html>
@@ -10,6 +13,12 @@
 <head>
   <title>ARC website</title>
   <meta charset="utf-8">
+  <meta name="keywords" content=" automation, robotics, club, science, technology, blogs, BITS, Pilani, Hyderabad, campus, robots, ATMOS"> 
+  <meta name="description" content=" The Automation and Robotics Club (ARC) is a student organization at BITS Pilani Hyderabad Campus.  We comprise people who love experimenting around with circuit boards, codes and yes, ideas. ARC was started in 20__ and has been around for quite some time now.
+             Robotics is a versatile field which is highly interdisciplinary. Even small projects involve coding, mechanical, electronics and design expertise, which means we always work in teams and all our projects are group projects.
+Our current projects include autonomous applications like chess-playing using AI, autonomous drawing robot and fields like self-navigation and self-balancing.
+Also, we proudly boast of a full scale robotic arm and a micro-quadcopter developed on our own from scratch."> 
+  
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="../blog/images/arc.png" type="image/png">
   <link rel="stylesheet" href="../blog/bootstrap4/css/bootstrap.min.css">
@@ -18,7 +27,7 @@
   <link rel="stylesheet" type="text/css" href="home.css">
 
   <script src="../blog/jquery.min.js"></script>
-  <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+  <script src="../imagesLoaded.js"></script>
   <script src="https://use.fontawesome.com/1523c943cd.js"></script>
   <script src="../blog/bootstrap4/js/bootstrap.min.js"></script>
   <script src="https://apis.google.com/js/api:client.js"></script> 
@@ -70,11 +79,18 @@
         <li class="nav-item">
           <a class="nav-link" href="../blog/index.php">Blog<span class="sr-only">(current)</span>
           </a>
-        </li><?php if(!isset($_SESSION["login-status"]) || empty($_SESSION["login-status"])) echo '
+        </li><?php if(!isset($_SESSION["login-status"]) || empty($_SESSION["login-status"]) || $_GET["status"]==2){ echo '
         <li class="nav-item">
           <a id="loginUser" class="nav-link" href="#">Login<span class="sr-only">(current)</span>
           </a>
-        </li>'?>
+        </li>';}
+        else{
+          echo '
+        <li class="nav-item">
+          <a id="loginUser" class="nav-link" href="../home/index.php?status=2">Logout<span class="sr-only">(current)</span>
+          </a>
+        </li>';
+          }?>
         <li class="nav-item">
           <a class="nav-link" href="#contact">Contact<span class="sr-only">(current)</span>
           </a>
@@ -102,19 +118,19 @@
       <div class="modal-body">
       <div class="row">
       <div class="col-sm-3 text-center">
-        <img src="images/robot.jpg" class="rounded-circle" alt="bot1" width="150" height="150">
+        <img src="images/yashdeep.jpg" class="rounded-circle" alt="bot1" width="150" height="150">
         <p style="color:black">Yashdeep</p>
       </div>
       <div class="col-sm-3 text-center">
-        <img src="images/robot.jpg" class="rounded-circle" alt="bot1" width="150" height="150">
+        <img src="images/shyam.jpg" class="rounded-circle" alt="bot1" width="150" height="150">
         <p style="color:black">Shyam</p>
       </div> 
       <div class="col-sm-3 text-center">
-        <img src="images/robot.jpg" class="rounded-circle" alt="bot1" width="150" height="150">
+        <img src="images/shristy.jpg" class="rounded-circle" alt="bot1" width="150" height="150">
         <p style="color:black">Shristy</p>
       </div> 
       <div class="col-sm-3 text-center">
-        <img src="images/robot.jpg" class="rounded-circle" alt="bot1" width="150" height="150">
+        <img src="images/srinkhala.jpg" class="rounded-circle" alt="bot1" width="150" height="150">
         <p style="color:black">Srinkhala</p>
       </div>
       </div>
@@ -202,7 +218,7 @@
 
 
   <div id="about" class="container-fluid">
-    <div class="parallax1">
+    <div class="parallax1 back-load">
       <div class="content">
         <div class="row">
           <div class="col-sm-8">
@@ -222,7 +238,7 @@ Also, we proudly boast of a full scale robotic arm and a micro-quadcopter develo
   </div>  
 
   <div id="vision" class="container-fluid bg-grey">
-    <div class="parallax2">
+    <div class="parallax2 back-load">
       <div class="content">
         <div class="row">
           <div class="col-sm-4">
@@ -240,7 +256,7 @@ Also, we proudly boast of a full scale robotic arm and a micro-quadcopter develo
 
 
   <div id="achievements" class="container-fluid text-center bg-grey">
-    <div class="parallax3">
+    <div class="parallax3 back-load">
       <div class="content2">
         <h2>ACHIEVEMENTS</h2><br>
         <h4>What we have created</h4>

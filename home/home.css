@@ -220,7 +220,7 @@ a.active{
 
 /*parallax----------------------------------------*/
 .parallax1{
-    background: url('images/1.jpg') no-repeat center;
+    background: url('images/grp_photo.jpg') no-repeat center;
     background-size: cover;
     background-attachment: fixed;
     height: 100%;
